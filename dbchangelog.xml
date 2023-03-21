@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="20230321" author="brionnevi">
+        <createTable tableName="user">
+            <column name="id" type="varchar2(50)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="email" type="varchar2(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar2(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar2(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="country">
+            <column name="id" type="varchar2(3)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar2(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="manufacturer">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar2(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country_id" type="varchar2(3)">
+                <constraints nullable="false" foreignKeyName="manufacturer_country_fk" referencedTableName="country" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+        <createTable tableName="vehicle">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="model" type="varchar2(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="year" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="horse_power" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="manufacturer_id" type="int">
+                <constraints nullable="false" foreignKeyName="vehicle_manufacturer_fk" referencedTableName="manufacturer" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+        <createTable tableName="motorbike_type">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar2(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="motorbike">
+            <column name="vehicle_id" type="int">
+                <constraints primaryKey="true" nullable="false" foreignKeyName="motorbike_vehicle_fk" referencedTableName="vehicle" referencedColumnNames="id"/>
+            </column>
+            <column name="capacity" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="motorbike_type_id" type="int">
+                <constraints nullable="false" foreignKeyName="motorbike_motorbike_type_fk" referencedTableName="motorbike_type" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+        <createTable tableName="car">
+            <column name="vehicle_id" type="int">
+                <constraints primaryKey="true" nullable="false" foreignKeyName="motorbike_vehicle_fk" referencedTableName="vehicle" referencedColumnNames="id"/>
+            </column>
+            <column name="capacity" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="ownership">
+            <column name="user_id" type="varchar2(50)">
+                <constraints primaryKey="true" nullable="false" foreignKeyName="ownership_user_fk" referencedTableName="user" referencedColumnNames="id"/>
+            </column>
+            <column name="vehicle_id" type="int">
+                <constraints primaryKey="true" nullable="false" foreignKeyName="ownership_vehicle_fk" referencedTableName="vehicle" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+        <createTable tableName="photo">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="content" type="blob">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="varchar2(50)">
+                <constraints nullable="false" foreignKeyName="photo_user_fk" referencedTableName="user" referencedColumnNames="id"/>
+            </column>
+            <column name="vehicle_id" type="int">
+                <constraints nullable="false" foreignKeyName="photo_vehicle_fk" referencedTableName="vehicle" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+        <createTable tableName="encounter">
+            <column name="user_id_1" type="varchar2(50)">
+                <constraints primaryKey="true" nullable="false" foreignKeyName="encounter_user_1_fk" referencedTableName="user" referencedColumnNames="id"/>
+            </column>
+            <column name="user_id_2" type="varchar2(50)">
+                <constraints primaryKey="true" nullable="false" foreignKeyName="encounter_user_2_fk" referencedTableName="user" referencedColumnNames="id"/>
+            </column>
+            <column name="position" type="varchar2(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
