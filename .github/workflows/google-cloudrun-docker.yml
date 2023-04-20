@@ -7,7 +7,7 @@ on:
 env:
   PROJECT_ID: motor-mingle-api
   GAR_LOCATION: europe-west9
-  SERVICE: API
+  SERVICE: api
   REGION: europe-west9
 
 jobs:
