@@ -76,7 +76,7 @@ jobs:
             --project ${{ env.PROJECT_ID }} \
             --format json \
             --allow-unauthenticated \
-            --PORT_NO=8080
+            --port=8080
 
       # If required, use the Cloud Run url output in later steps
       - name: Show Output
