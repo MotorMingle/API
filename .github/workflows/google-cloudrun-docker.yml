@@ -75,8 +75,7 @@ jobs:
             --region ${{ env.GAR_LOCATION }} \
             --project ${{ env.PROJECT_ID }} \
             --format json \
-            --allow-unauthenticated \
-            --port=8080
+            --allow-unauthenticated
 
       # If required, use the Cloud Run url output in later steps
       - name: Show Output
