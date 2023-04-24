@@ -68,10 +68,7 @@ jobs:
             --region ${{ env.GAR_LOCATION }} \
             --project ${{ env.PROJECT_ID }} \
             --format json \
-            --allow-unauthenticated \
-            --update-secrets DATABASE_USERNAME=DATABASE_USERNAME:latest \
-            --update-secrets DATABASE_PASSWORD=DATABASE_PASSWORD:latest \
-            --update-secrets DATABASE_INSTANCE=DATABASE_INSTANCE:latest
+            --allow-unauthenticated
 
       # If required, use the Cloud Run url output in later steps
       - name: Show Output

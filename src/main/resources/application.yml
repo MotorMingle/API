@@ -5,13 +5,13 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: ${DATABASE_PASSWORD}
+    password: jo64XM@$13nGyc/7
     url: jdbc:mysql:///database
-    username: ${DATABASE_USERNAME}
+    username: motor-mingle-db-dev
     hikari:
       data-source-properties:
         socketFactory: com.google.cloud.sql.mysql.SocketFactory
-        cloudSqlInstance: ${DATABASE_INSTANCE}
+        cloudSqlInstance: motor-mingle-api:europe-west9:motor-mingle-db-dev
 
   jpa:
     hibernate:
