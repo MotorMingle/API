@@ -1,3 +1,5 @@
+env: dev
+
 server:
   servlet:
     context-path: /motor-mingle
