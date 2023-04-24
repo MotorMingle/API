@@ -1,5 +1,3 @@
-env: local
-
 server:
   servlet:
     context-path: /motor-mingle
@@ -7,25 +5,20 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: jo64XM@$13nGyc/7
+    password: ${DATABASE_PASSWORD}
     url: jdbc:mysql:///database
-    username: motor-mingle-db-dev
+    username: ${DATABASE_USERNAME}
     hikari:
       data-source-properties:
         socketFactory: com.google.cloud.sql.mysql.SocketFactory
-        cloudSqlInstance: motor-mingle-api:europe-west9:motor-mingle-db-dev
-
-  security:
-    user:
-      name: motor-mingle
-      password: password
+        cloudSqlInstance: ${DATABASE_INSTANCE}
 
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
     show-sql: true
 
