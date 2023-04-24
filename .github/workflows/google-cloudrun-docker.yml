@@ -78,7 +78,7 @@ jobs:
             --allow-unauthenticated \
             --update-secrets DATABASE_USERNAME=DATABASE_USERNAME:latest \
             --update-secrets DATABASE_PASSWORD=DATABASE_PASSWORD:latest \
-            --update-secrets DATABASE_INSTANCE=DATABASE_INSTANCE:latest \
+            --update-secrets DATABASE_INSTANCE=DATABASE_INSTANCE:latest
 
       # If required, use the Cloud Run url output in later steps
       - name: Show Output
