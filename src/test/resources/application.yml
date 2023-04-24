@@ -1,5 +1,6 @@
 spring:
-  profiles: test
+  profiles:
+    active: test
   datasource:
     driver-class-name: org.h2.Driver
     username: motor-mingle
