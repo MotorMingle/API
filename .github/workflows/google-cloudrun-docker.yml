@@ -30,7 +30,7 @@ jobs:
           distribution: 'zulu' # Alternative distribution options are available.
 
       - name: Build
-        run: mvn clean install -U -Pprod
+        run: mvn clean install -U
 
       - name: Google Auth
         id: auth
