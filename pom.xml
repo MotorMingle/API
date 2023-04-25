@@ -67,7 +67,6 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>8.0.33</version>
             <scope>runtime</scope>
-            <version>42.6.0</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
