@@ -1,2 +1,5 @@
-package fr.motormingle.api.entity;public class UserEntity {
+package fr.motormingle.api.entity;
+
+@Entity
+public class UserEntity {
 }
