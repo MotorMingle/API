@@ -18,6 +18,11 @@
             <column name="last_name" type="varchar2(50)">
                 <constraints nullable="false"/>
             </column>
+            <column name="birth_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="minimal_age" type="int"/>
+            <column name="maximal_age" type="int"/>
         </createTable>
         <createTable tableName="country">
             <column name="id" type="varchar2(3)">
