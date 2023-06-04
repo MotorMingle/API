@@ -18,6 +18,14 @@
         <sonar.organization>motormingle</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <configurationFile>src/main/resources/application.yml</configurationFile>
+            </properties>
+        </profile>
+    </profiles>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -63,12 +71,6 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <version>8.0.33</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>2.1.214</version>
@@ -101,14 +103,17 @@
         </dependency>
         <dependency>
             <groupId>com.google.cloud.sql</groupId>
-            <artifactId>mysql-socket-factory</artifactId>
-            <version>1.11.1</version>
-            <scope>runtime</scope>
+            <artifactId>postgres-socket-factory</artifactId>
+            <version>1.11.2</version>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-            <version>4.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
@@ -154,9 +159,8 @@
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
-                <version>3.8.0</version>
                 <configuration>
-                    <propertyFile>liquibase.properties</propertyFile>
+                    <propertyFile>${configurationFile}</propertyFile>
                 </configuration>
                 <dependencies>
                     <dependency>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.8.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1685840637046-1" author="brionnevi">
+        <createTable tableName="car">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_car"/>
+            </column>
+            <column name="capacity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685840637046-2" author="victo (generated)">
+        <createTable tableName="country">
+            <column name="id" type="VARCHAR(3)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_country"/>
+            </column>
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685840637046-3" author="victo (generated)">
+        <createTable tableName="encounter">
+            <column name="date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id_1" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_encounter"/>
+            </column>
+            <column name="user_id_2" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_encounter"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685840637046-4" author="victo (generated)">
+        <createTable tableName="manufacturer">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_manufacturer"/>
+            </column>
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country_id" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685840637046-5" author="victo (generated)">
+        <createTable tableName="motorbike">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_motorbike"/>
+            </column>
+            <column name="capacity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="motorbike_type_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685840637046-6" author="victo (generated)">
+        <createTable tableName="motorbike_type">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_motorbike_type"/>
+            </column>
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685840637046-7" author="victo (generated)">
+        <createTable tableName="ownership">
+            <column name="user_id" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_ownership"/>
+            </column>
+            <column name="vehicle_id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_ownership"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685840637046-8" author="victo (generated)">
+        <createTable tableName="photo">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_photo"/>
+            </column>
+            <column name="content" type="oid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vehicle_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685840637046-9" author="victo (generated)">
+        <createTable tableName="user">
+            <column name="id" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user"/>
+            </column>
+            <column name="email" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="minimal_age" type="INT"/>
+            <column name="maximal_age" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685840637046-10" author="victo (generated)">
+        <createTable tableName="vehicle">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_vehicle"/>
+            </column>
+            <column name="model" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="year" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="horse_power" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="manufacturer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1685840637046-11" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="car" constraintName="FK_CAR_ON_ID"
+                                 referencedColumnNames="id" referencedTableName="vehicle"/>
+    </changeSet>
+    <changeSet id="1685840637046-12" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id_1" baseTableName="encounter"
+                                 constraintName="FK_ENCOUNTER_ON_USER_ID_1" referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1685840637046-13" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id_2" baseTableName="encounter"
+                                 constraintName="FK_ENCOUNTER_ON_USER_ID_2" referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1685840637046-14" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="country_id" baseTableName="manufacturer"
+                                 constraintName="FK_MANUFACTURER_ON_COUNTRY" referencedColumnNames="id"
+                                 referencedTableName="country"/>
+    </changeSet>
+    <changeSet id="1685840637046-15" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="motorbike" constraintName="FK_MOTORBIKE_ON_ID"
+                                 referencedColumnNames="id" referencedTableName="vehicle"/>
+    </changeSet>
+    <changeSet id="1685840637046-16" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="motorbike_type_id" baseTableName="motorbike"
+                                 constraintName="FK_MOTORBIKE_ON_MOTORBIKE_TYPE" referencedColumnNames="id"
+                                 referencedTableName="motorbike_type"/>
+    </changeSet>
+    <changeSet id="1685840637046-17" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="ownership"
+                                 constraintName="FK_OWNERSHIP_ON_USER" referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1685840637046-18" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="vehicle_id" baseTableName="ownership"
+                                 constraintName="FK_OWNERSHIP_ON_VEHICLE" referencedColumnNames="id"
+                                 referencedTableName="vehicle"/>
+    </changeSet>
+    <changeSet id="1685840637046-19" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="photo" constraintName="FK_PHOTO_ON_USER"
+                                 referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1685840637046-20" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="vehicle_id" baseTableName="photo" constraintName="FK_PHOTO_ON_VEHICLE"
+                                 referencedColumnNames="id" referencedTableName="vehicle"/>
+    </changeSet>
+    <changeSet id="1685840637046-21" author="victo (generated)">
+        <addForeignKeyConstraint baseColumnNames="manufacturer_id" baseTableName="vehicle"
+                                 constraintName="FK_VEHICLE_ON_MANUFACTURER" referencedColumnNames="id"
+                                 referencedTableName="manufacturer"/>
+    </changeSet>
+
+</databaseChangeLog>
