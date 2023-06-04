@@ -21,9 +21,6 @@
     <profiles>
         <profile>
             <id>local</id>
-            <properties>
-                <configurationFile>src/main/resources/application.yml</configurationFile>
-            </properties>
         </profile>
     </profiles>
     <dependencies>
@@ -160,7 +157,7 @@
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <configuration>
-                    <propertyFile>${configurationFile}</propertyFile>
+                    <propertyFile>src/main/resources/application.yml</propertyFile>
                 </configuration>
                 <dependencies>
                     <dependency>

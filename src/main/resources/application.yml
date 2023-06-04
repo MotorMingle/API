@@ -3,6 +3,15 @@ server:
     context-path: /motor-mingle
 
 spring:
+  profiles:
+    active: local
+
+---
+spring:
+  config:
+    activate:
+      on-profile: gcp
+
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql:///database
@@ -16,3 +25,20 @@ spring:
   liquibase:
     parameters:
       changeLogFile: src/main/resources/db/changelog/db.changelog-master.xml
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/motormingle
+    username: motormingle
+    password: motormingle
+
+  liquibase:
+    parameters:
+      changeLogFile: src/main/resources/db/changelog/db.changelog-master.xml
+
+    change-log: db/changelog/db.changelog-master.xml
