@@ -1,6 +1,5 @@
-package fr.motormingle.api;
+package fr.motormingle.api.controller;
 
-import fr.motormingle.api.controller.ManufacturerController;
 import fr.motormingle.api.entity.Manufacturer;
 import fr.motormingle.api.exception.NotFoundException;
 import fr.motormingle.api.service.ManufacturerService;
