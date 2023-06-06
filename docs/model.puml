@@ -6,7 +6,7 @@ skinparam linetype ortho
 
 class car {
    capacity: integer
-   vehicle_id: integer
+   id: bigint
 }
 class country {
    name: varchar(50)
@@ -35,7 +35,8 @@ class databasechangeloglock {
    id: integer
 }
 class encounter {
-   position: varchar(50)
+   date: date
+   status: integer
    user_id_1: varchar(50)
    user_id_2: varchar(50)
 }
@@ -47,7 +48,7 @@ class manufacturer {
 class motorbike {
    capacity: integer
    motorbike_type_id: integer
-   vehicle_id: integer
+   id: bigint
 }
 class motorbike_type {
    name: varchar(50)
@@ -60,7 +61,7 @@ class ownership {
 class photo {
    content: oid
    user_id: varchar(50)
-   vehicle_id: integer
+   vehicle_id: bigint
    id: integer
 }
 class user {
@@ -77,19 +78,18 @@ class vehicle {
    year: integer
    horse_power: integer
    manufacturer_id: integer
-   id: integer
+   id: bigint
 }
 
-car                    -[#595959,plain]-^  vehicle               : "vehicle_id:id"
+car                    -[#595959,plain]-^  vehicle               : "id"
 encounter              -[#595959,plain]-^  user                  : "user_id_2:id"
 encounter              -[#595959,plain]-^  user                  : "user_id_1:id"
 manufacturer           -[#595959,plain]-^  country               : "country_id:id"
 motorbike              -[#595959,plain]-^  motorbike_type        : "motorbike_type_id:id"
-motorbike              -[#595959,plain]-^  vehicle               : "vehicle_id:id"
+motorbike              -[#595959,plain]-^  vehicle               : "id"
 ownership              -[#595959,plain]-^  user                  : "user_id:id"
 ownership              -[#595959,plain]-^  vehicle               : "vehicle_id:id"
 photo                  -[#595959,plain]-^  user                  : "user_id:id"
 photo                  -[#595959,plain]-^  vehicle               : "vehicle_id:id"
 vehicle                -[#595959,plain]-^  manufacturer          : "manufacturer_id:id"
-
 @enduml

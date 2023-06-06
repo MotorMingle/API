@@ -10,11 +10,6 @@ import lombok.Setter;
 @Table(name = "motorbike")
 public class Motorbike extends Vehicle {
 
-    @MapsId
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", nullable = false)
-    private Vehicle vehicle;
-
     @Column(name = "capacity", nullable = false)
     private Integer capacity;
 

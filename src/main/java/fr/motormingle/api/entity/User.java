@@ -8,18 +8,22 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "user")
 public class User {
     @Id
     @Column(name = "id", nullable = false, length = 50)
-    private String id;
+    private UUID id;
 
-    @Column(name = "email", nullable = false, length = 50)
+    @Column(name = "email", nullable = false, length = 50, unique = true)
     private String email;
+
+    @Column(name = "tag", nullable = false, length = 50, unique = true)
+    private String tag;
 
     @Column(name = "first_name", nullable = false, length = 50)
     private String firstName;

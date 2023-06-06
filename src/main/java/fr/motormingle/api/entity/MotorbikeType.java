@@ -12,6 +12,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "motorbike_type")
 public class MotorbikeType {
+
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;

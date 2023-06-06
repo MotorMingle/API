@@ -24,10 +24,17 @@ public class Encounter {
     @JoinColumn(name = "user_id_2", nullable = false)
     private User userId2;
 
+    @Column(name = "hash", nullable = false)
+    private String hash;
+
+    @Column(name = "count", nullable = false)
+    private int count;
+
     @Column(name = "date", nullable = false)
     private LocalDate date;
 
     @Column(name = "status", nullable = false)
-    private Integer status;
+    @Enumerated(EnumType.STRING)
+    private EncounterStatus status;
 
 }

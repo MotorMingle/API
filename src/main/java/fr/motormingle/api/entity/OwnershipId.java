@@ -9,6 +9,7 @@ import org.hibernate.Hibernate;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,7 +18,7 @@ public class OwnershipId implements Serializable {
     @Serial
     private static final long serialVersionUID = 2249956555448919268L;
     @Column(name = "user_id", nullable = false, length = 50)
-    private String userId;
+    private UUID userId;
 
     @Column(name = "vehicle_id", nullable = false)
     private Integer vehicleId;

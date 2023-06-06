@@ -24,7 +24,7 @@ spring:
 
   liquibase:
     parameters:
-      changeLogFile: src/main/resources/db/changelog/db.changelog-master.xml
+      changeLogFile: src/main/resources/db/changelog/db.changelog-master.yml
 ---
 spring:
   config:
@@ -39,6 +39,6 @@ spring:
 
   liquibase:
     parameters:
-      changeLogFile: src/main/resources/db/changelog/db.changelog-master.xml
+      changeLogFile: src/main/resources/db/changelog/db.changelog-master.yml
 
-    change-log: db/changelog/db.changelog-master.xml
+    change-log: db/changelog/db.changelog-master.yml

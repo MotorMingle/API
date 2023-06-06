@@ -2,7 +2,6 @@ package fr.motormingle.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -15,7 +14,6 @@ public class ApiApplication {
     }
 
     @Bean
-    @ConditionalOnProperty(name = "env", havingValue = "local")
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.build();
     }

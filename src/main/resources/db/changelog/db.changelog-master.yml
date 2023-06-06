@@ -1,0 +1,444 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1686079193415-1
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: manufacturer_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1686079193415-2
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: vehicle_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1686079193415-3
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_car
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: capacity
+                  type: INT
+            tableName: car
+  - changeSet:
+      id: 1686079193415-4
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_country
+                  name: id
+                  type: VARCHAR(3)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(50)
+            tableName: country
+  - changeSet:
+      id: 1686079193415-5
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: hash
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: count
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: date
+                  type: DATE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: status
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_encounter
+                  name: user_id_1
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_encounter
+                  name: user_id_2
+                  type: UUID
+            tableName: encounter
+  - changeSet:
+      id: 1686079193415-6
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_manufacturer
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: country_id
+                  type: VARCHAR(3)
+            tableName: manufacturer
+  - changeSet:
+      id: 1686079193415-7
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_motorbike
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: capacity
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: motorbike_type_id
+                  type: INT
+            tableName: motorbike
+  - changeSet:
+      id: 1686079193415-8
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_motorbike_type
+                  name: id
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(50)
+            tableName: motorbike_type
+  - changeSet:
+      id: 1686079193415-9
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_ownership
+                  name: user_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_ownership
+                  name: vehicle_id
+                  type: INT
+            tableName: ownership
+  - changeSet:
+      id: 1686079193415-10
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_photo
+                  name: id
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: content
+                  type: oid
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: vehicle_id
+                  type: BIGINT
+            tableName: photo
+  - changeSet:
+      id: 1686079193415-11
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: email
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tag
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: first_name
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_name
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: birth_date
+                  type: DATE
+              - column:
+                  name: minimal_age
+                  type: INT
+              - column:
+                  name: maximal_age
+                  type: INT
+            tableName: user
+  - changeSet:
+      id: 1686079193415-12
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_vehicle
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: model
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: year
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: horse_power
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: manufacturer_id
+                  type: BIGINT
+            tableName: vehicle
+  - changeSet:
+      id: 1686079193415-13
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: email
+            constraintName: uc_user_email
+            tableName: user
+  - changeSet:
+      id: 1686079193415-14
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: tag
+            constraintName: uc_user_tag
+            tableName: user
+  - changeSet:
+      id: 1686079193415-15
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: id
+            baseTableName: car
+            constraintName: FK_CAR_ON_ID
+            referencedColumnNames: id
+            referencedTableName: vehicle
+  - changeSet:
+      id: 1686079193415-16
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id_1
+            baseTableName: encounter
+            constraintName: FK_ENCOUNTER_ON_USER_ID_1
+            referencedColumnNames: id
+            referencedTableName: user
+  - changeSet:
+      id: 1686079193415-17
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id_2
+            baseTableName: encounter
+            constraintName: FK_ENCOUNTER_ON_USER_ID_2
+            referencedColumnNames: id
+            referencedTableName: user
+  - changeSet:
+      id: 1686079193415-18
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: country_id
+            baseTableName: manufacturer
+            constraintName: FK_MANUFACTURER_ON_COUNTRY
+            referencedColumnNames: id
+            referencedTableName: country
+  - changeSet:
+      id: 1686079193415-19
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: id
+            baseTableName: motorbike
+            constraintName: FK_MOTORBIKE_ON_ID
+            referencedColumnNames: id
+            referencedTableName: vehicle
+  - changeSet:
+      id: 1686079193415-20
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: motorbike_type_id
+            baseTableName: motorbike
+            constraintName: FK_MOTORBIKE_ON_MOTORBIKE_TYPE
+            referencedColumnNames: id
+            referencedTableName: motorbike_type
+  - changeSet:
+      id: 1686079193415-21
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: ownership
+            constraintName: FK_OWNERSHIP_ON_USER
+            referencedColumnNames: id
+            referencedTableName: user
+  - changeSet:
+      id: 1686079193415-22
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: vehicle_id
+            baseTableName: ownership
+            constraintName: FK_OWNERSHIP_ON_VEHICLE
+            referencedColumnNames: id
+            referencedTableName: vehicle
+  - changeSet:
+      id: 1686079193415-23
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: photo
+            constraintName: FK_PHOTO_ON_USER
+            referencedColumnNames: id
+            referencedTableName: user
+  - changeSet:
+      id: 1686079193415-24
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: vehicle_id
+            baseTableName: photo
+            constraintName: FK_PHOTO_ON_VEHICLE
+            referencedColumnNames: id
+            referencedTableName: vehicle
+  - changeSet:
+      id: 1686079193415-25
+      author: victo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: manufacturer_id
+            baseTableName: vehicle
+            constraintName: FK_VEHICLE_ON_MANUFACTURER
+            referencedColumnNames: id
+            referencedTableName: motorbike
+

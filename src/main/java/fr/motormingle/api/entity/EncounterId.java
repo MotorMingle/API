@@ -9,6 +9,7 @@ import org.hibernate.Hibernate;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,10 +18,10 @@ public class EncounterId implements Serializable {
     @Serial
     private static final long serialVersionUID = -1888100727307985572L;
     @Column(name = "user_id_1", nullable = false, length = 50)
-    private String userId1;
+    private UUID userId1;
 
     @Column(name = "user_id_2", nullable = false, length = 50)
-    private String userId2;
+    private UUID userId2;
 
     @Override
     public boolean equals(Object o) {
