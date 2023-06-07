@@ -189,7 +189,7 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_ownership
                   name: vehicle_id
-                  type: INT
+                  type: BIGINT
             tableName: ownership
   - changeSet:
       id: 1686169303008-10

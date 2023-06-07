@@ -25,7 +25,7 @@ public class OwnershipId implements Serializable {
     private UUID userId;
 
     @Column(name = "vehicle_id", nullable = false)
-    private Integer vehicleId;
+    private Long vehicleId;
 
     @Override
     public boolean equals(Object o) {
