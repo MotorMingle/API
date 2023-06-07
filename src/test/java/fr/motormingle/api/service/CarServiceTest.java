@@ -67,8 +67,6 @@ class CarServiceTest {
     void testFindByIdNotFound() {
         when(carRepository.findById(anyLong())).thenReturn(Optional.empty());
 
-        assertThrows(NotFoundException.class, () -> {
-            carService.findById(2L);
-        });
+        assertThrows(NotFoundException.class, () -> carService.findById(2L));
     }
 }
