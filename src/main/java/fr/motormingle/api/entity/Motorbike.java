@@ -1,6 +1,8 @@
 package fr.motormingle.api.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 @Getter
@@ -12,6 +14,8 @@ public class Motorbike extends Vehicle {
      * Motorbike motorization expressed in cubic centimeters.
      */
     @Column(name = "capacity", nullable = false)
+    @NotNull
+    @Digits(integer = 4, fraction = 0)
     private Integer capacity;
 
     /**
@@ -19,6 +23,7 @@ public class Motorbike extends Vehicle {
      */
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "motorbike_type_id", nullable = false)
+    @NotNull
     private MotorbikeType motorbikeType;
 
 }

@@ -1,6 +1,9 @@
 package fr.motormingle.api.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,24 +20,32 @@ public abstract class Vehicle {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "vehicle_id_seq")
     @SequenceGenerator(name = "vehicle_id_seq", sequenceName = "vehicle_id_seq", allocationSize = 1)
     @Column(name = "id", nullable = false)
+    @NotNull
     private Long id;
 
     /**
      * Model name of the vehicle
      */
     @Column(name = "model", nullable = false, length = 50)
+    @NotNull
+    @Size(min = 1, max = 50)
     private String model;
 
     /**
      * Year of the vehicle
      */
     @Column(name = "year", nullable = false)
+    @NotNull
+    @Size(min = 4, max = 4)
+    @Digits(integer = 4, fraction = 0)
     private Integer year;
 
     /**
      * Horsepower of the vehicle
      */
     @Column(name = "horse_power", nullable = false)
+    @NotNull
+    @Digits(integer = 4, fraction = 0)
     private Integer horsePower;
 
     /**

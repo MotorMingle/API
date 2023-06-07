@@ -35,7 +35,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   name: capacity
-                  type: INT
+                  type: NUMERIC(1, 3)
             tableName: car
   - changeSet:
       id: 1686169303008-4

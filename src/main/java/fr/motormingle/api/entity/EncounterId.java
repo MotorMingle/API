@@ -2,6 +2,8 @@ package fr.motormingle.api.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
@@ -22,9 +24,13 @@ public class EncounterId implements Serializable {
     private static final long serialVersionUID = -1888100727307985572L;
 
     @Column(name = "user_id_1", nullable = false, length = 50)
+    @NotNull
+    @Size(min = 1, max = 50)
     private UUID userId1;
 
     @Column(name = "user_id_2", nullable = false, length = 50)
+    @NotNull
+    @Size(min = 1, max = 50)
     private UUID userId2;
 
     /**

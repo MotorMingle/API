@@ -1,6 +1,7 @@
 package fr.motormingle.api.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,7 @@ import java.sql.Blob;
 public class Photo {
 
     @EmbeddedId
+    @NotNull
     private PhotoId id;
 
     @Lob

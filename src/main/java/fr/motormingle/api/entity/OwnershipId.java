@@ -2,6 +2,8 @@ package fr.motormingle.api.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
@@ -22,9 +24,12 @@ public class OwnershipId implements Serializable {
     private static final long serialVersionUID = 2249956555448919268L;
 
     @Column(name = "user_id", nullable = false, length = 50)
+    @NotNull
+    @Size(min = 1, max = 50)
     private UUID userId;
 
     @Column(name = "vehicle_id", nullable = false)
+    @NotNull
     private Long vehicleId;
 
     @Override

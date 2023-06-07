@@ -2,6 +2,7 @@ package fr.motormingle.api.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,7 @@ public class PhotoId implements Serializable {
     private static final long serialVersionUID = -6913888454633548211L;
 
     @Column(name = "id", nullable = false)
+    @NotNull
     private Long id;
 
     private OwnershipId ownershipId;
