@@ -19,11 +19,11 @@ class PhotoIdTest {
     void setUp() {
         ownershipId1 = new OwnershipId();
         ownershipId1.setUserId(UUID.randomUUID());
-        ownershipId1.setVehicleId(1);
+        ownershipId1.setVehicleId(1L);
 
         ownershipId2 = new OwnershipId();
         ownershipId2.setUserId(UUID.randomUUID());
-        ownershipId2.setVehicleId(2);
+        ownershipId2.setVehicleId(2L);
 
         photoId1 = new PhotoId();
         photoId1.setId(1L);

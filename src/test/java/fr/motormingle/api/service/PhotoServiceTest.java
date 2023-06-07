@@ -41,7 +41,7 @@ class PhotoServiceTest {
         Ownership ownership = new Ownership();
         OwnershipId ownershipId = new OwnershipId();
         ownershipId.setUserId(user.getId());
-        ownershipId.setVehicleId(1);
+        ownershipId.setVehicleId(1L);
         ownership.setId(ownershipId);
         ownership.setUser(user);
 

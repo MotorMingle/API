@@ -12,7 +12,7 @@ class OwnershipIdTest {
     @Test
     void testEquals() {
         UUID userId = UUID.randomUUID();
-        Integer vehicleId = 123;
+        Long vehicleId = 123L;
 
         OwnershipId ownershipId1 = new OwnershipId();
         ownershipId1.setUserId(userId);
@@ -24,14 +24,14 @@ class OwnershipIdTest {
 
         assertEquals(ownershipId1, ownershipId2);
 
-        ownershipId2.setVehicleId(456);
+        ownershipId2.setVehicleId(456L);
         assertNotEquals(ownershipId1, ownershipId2);
     }
 
     @Test
     void testHashCode() {
         UUID userId = UUID.randomUUID();
-        Integer vehicleId = 123;
+        Long vehicleId = 123L;
 
         OwnershipId ownershipId1 = new OwnershipId();
         ownershipId1.setUserId(userId);
@@ -43,7 +43,7 @@ class OwnershipIdTest {
 
         assertEquals(ownershipId1.hashCode(), ownershipId2.hashCode());
 
-        ownershipId2.setVehicleId(456);
+        ownershipId2.setVehicleId(456L);
         assertNotEquals(ownershipId1.hashCode(), ownershipId2.hashCode());
     }
 }
