@@ -1,27 +1,39 @@
 server:
   servlet:
     context-path: /motor-mingle
-
+---
 spring:
+  config:
+    activate:
+      on-profile: gcp
+
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    password: ${DATABASE_PASSWORD}
-    url: jdbc:mysql:///database
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql:///database
     username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
     hikari:
       data-source-properties:
-        socketFactory: com.google.cloud.sql.mysql.SocketFactory
+        socketFactory: com.google.cloud.sql.postgres.SocketFactory
         cloudSqlInstance: ${DATABASE_INSTANCE}
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
-        format_sql: true
-    show-sql: true
+  liquibase:
+    parameters:
+      changeLogFile: src/main/resources/db/changelog/db.changelog-master.yaml
+---
+spring:
+  config:
+    activate:
+      on-profile: local
 
-  session:
-    jdbc:
-      initialize-schema: always
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/motormingle
+    username: motormingle
+    password: motormingle
+
+  liquibase:
+    parameters:
+      changeLogFile: src/main/resources/db/changelog/db.changelog-master.yaml
+
+    change-log: db/changelog/db.changelog-master.yaml

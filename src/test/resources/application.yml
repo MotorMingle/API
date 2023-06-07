@@ -1,8 +1,18 @@
+server:
+  servlet:
+    context-path: /motor-mingle
+
 spring:
-  profiles:
-    active: test
+  config:
+    activate:
+      on-profile: gcp
+
   datasource:
     driver-class-name: org.h2.Driver
-    username: motor-mingle
-    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
-    password: password
+    url: jdbc:h2:mem:motormingletest
+    username: motormingle
+    password: motormingle
+
+  liquibase:
+    parameters:
+      changeLogFile: src/main/resources/db/changelog/db.changelog-master.yaml
