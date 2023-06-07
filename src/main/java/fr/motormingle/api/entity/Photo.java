@@ -2,10 +2,12 @@ package fr.motormingle.api.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Blob;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "photo")
 public class Photo {
@@ -23,7 +25,4 @@ public class Photo {
     @JoinColumn(name = "ownership_vehicle_id", referencedColumnName = "vehicle_id")
     private Ownership ownership;
 
-    public void setOwnership(Ownership ownership) {
-        this.ownership = ownership;
-    }
 }

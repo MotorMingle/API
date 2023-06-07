@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MotorbikeService implements FindService<Motorbike> {
+public class MotorbikeService implements FindService<Motorbike, Long> {
 
     @Autowired
     private MotorbikeRepository motorbikeRepository;

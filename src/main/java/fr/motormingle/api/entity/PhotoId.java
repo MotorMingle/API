@@ -3,6 +3,7 @@ package fr.motormingle.api.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -12,13 +13,14 @@ import java.io.Serializable;
  */
 
 @Getter
+@Setter
 @Embeddable
 public class PhotoId implements Serializable {
     @Serial
     private static final long serialVersionUID = -6913888454633548211L;
 
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
 
     private OwnershipId ownershipId;
 }

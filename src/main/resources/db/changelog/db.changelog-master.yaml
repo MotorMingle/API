@@ -209,7 +209,7 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_photo
                   name: id
-                  type: INT
+                  type: BIGINT
               - column:
                   constraints:
                     nullable: false

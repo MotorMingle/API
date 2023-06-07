@@ -2,12 +2,14 @@ package fr.motormingle.api.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Ownership entity describing the possession of a user of a particular
  * vehicle model and linking it to potentials photos.
  */
 @Getter
+@Setter
 @Entity
 @Table(name = "ownership")
 public class Ownership {

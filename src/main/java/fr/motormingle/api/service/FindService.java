@@ -9,9 +9,9 @@ import java.util.List;
  *
  * @param <T> the entity type
  */
-public interface FindService<T> {
+public interface FindService<T, I> {
 
     List<T> findAll();
 
-    T findById(Long id) throws NotFoundException;
+    T findById(I id) throws NotFoundException;
 }

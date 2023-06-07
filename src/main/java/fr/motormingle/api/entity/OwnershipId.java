@@ -3,6 +3,7 @@ package fr.motormingle.api.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import java.io.Serial;
@@ -14,6 +15,7 @@ import java.util.UUID;
  * Ownership composite identifier class
  */
 @Getter
+@Setter
 @Embeddable
 public class OwnershipId implements Serializable {
     @Serial
