@@ -4,6 +4,7 @@ import fr.motormingle.api.entity.Encounter;
 import fr.motormingle.api.entity.EncounterId;
 import fr.motormingle.api.exception.NotFoundException;
 import fr.motormingle.api.repository.EncounterRepository;
+import fr.motormingle.api.service.stereotype.FindService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

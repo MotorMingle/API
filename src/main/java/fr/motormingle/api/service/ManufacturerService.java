@@ -3,6 +3,7 @@ package fr.motormingle.api.service;
 import fr.motormingle.api.entity.Manufacturer;
 import fr.motormingle.api.exception.NotFoundException;
 import fr.motormingle.api.repository.ManufacturerRepository;
+import fr.motormingle.api.service.stereotype.FindService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

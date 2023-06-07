@@ -1,5 +1,6 @@
 package fr.motormingle.api.controller;
 
+import fr.motormingle.api.controller.stereotype.GetController;
 import fr.motormingle.api.entity.Car;
 import fr.motormingle.api.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;

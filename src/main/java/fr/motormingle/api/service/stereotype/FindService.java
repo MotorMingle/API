@@ -1,4 +1,4 @@
-package fr.motormingle.api.service;
+package fr.motormingle.api.service.stereotype;
 
 import fr.motormingle.api.exception.NotFoundException;
 
