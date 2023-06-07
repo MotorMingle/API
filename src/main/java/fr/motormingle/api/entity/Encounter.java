@@ -2,10 +2,12 @@ package fr.motormingle.api.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "encounter")
 public class Encounter {
