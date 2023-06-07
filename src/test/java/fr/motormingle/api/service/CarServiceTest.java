@@ -43,7 +43,7 @@ class CarServiceTest {
         Manufacturer manufacturer = new Manufacturer(); // Make sure you have a Manufacturer class defined.
         manufacturer.setId(1L);
         car.setManufacturer(manufacturer);
-        car.setCapacity(2);
+        car.setCapacity(2d);
     }
 
     @Test
