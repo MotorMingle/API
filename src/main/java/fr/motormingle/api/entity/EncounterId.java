@@ -3,7 +3,6 @@ package fr.motormingle.api.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import java.io.Serial;
@@ -11,18 +10,25 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * Encounter composite identifier class
+ */
 @Getter
-@Setter
 @Embeddable
 public class EncounterId implements Serializable {
     @Serial
     private static final long serialVersionUID = -1888100727307985572L;
+
     @Column(name = "user_id_1", nullable = false, length = 50)
     private UUID userId1;
 
     @Column(name = "user_id_2", nullable = false, length = 50)
     private UUID userId2;
 
+    /**
+     * @param o Object to compare
+     * @return true if both of user IDs are the same either way
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

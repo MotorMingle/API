@@ -1,0 +1,18 @@
+server:
+  servlet:
+    context-path: /motor-mingle
+
+spring:
+  config:
+    activate:
+      on-profile: gcp
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql:///database
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+
+  liquibase:
+    parameters:
+      changeLogFile: src/main/resources/db/changelog/db.changelog-master.yaml

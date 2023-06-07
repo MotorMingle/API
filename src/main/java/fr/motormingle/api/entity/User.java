@@ -5,13 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
 @Getter
-@Setter
 @Entity
 @Table(name = "user")
 public class User {
@@ -22,6 +20,9 @@ public class User {
     @Column(name = "email", nullable = false, length = 50, unique = true)
     private String email;
 
+    /**
+     * Tag is a unique identifier for the user
+     */
     @Column(name = "tag", nullable = false, length = 50, unique = true)
     private String tag;
 
@@ -34,9 +35,15 @@ public class User {
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 
+    /**
+     * Minimum age of the people the user wants to meet
+     */
     @Column(name = "minimal_age")
     private Integer minimalAge;
 
+    /**
+     * Maximum age of the people the user wants to meet
+     */
     @Column(name = "maximal_age")
     private Integer maximalAge;
 

@@ -2,27 +2,28 @@ package fr.motormingle.api.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
+
+import java.sql.Blob;
 
 @Getter
-@Setter
 @Entity
 @Table(name = "photo")
 public class Photo {
-    @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
+
+    @EmbeddedId
+    private PhotoId id;
 
     @Lob
     @Column(name = "content", nullable = false)
-    private String content;
+    private Blob content;
 
+    @MapsId("ownershipId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "ownership_user_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "ownership_vehicle_id", referencedColumnName = "vehicle_id")
+    private Ownership ownership;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "vehicle_id", nullable = false)
-    private Vehicle vehicle;
-
+    public void setOwnership(Ownership ownership) {
+        this.ownership = ownership;
+    }
 }

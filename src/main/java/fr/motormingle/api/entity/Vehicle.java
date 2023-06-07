@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Vehicle abstract class
+ */
 @Getter
 @Setter
 @Entity
@@ -16,17 +19,29 @@ public abstract class Vehicle {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    /**
+     * Model name of the vehicle
+     */
     @Column(name = "model", nullable = false, length = 50)
     private String model;
 
+    /**
+     * Year of the vehicle
+     */
     @Column(name = "year", nullable = false)
     private Integer year;
 
+    /**
+     * Horsepower of the vehicle
+     */
     @Column(name = "horse_power", nullable = false)
     private Integer horsePower;
 
+    /**
+     * Manufacturer of the vehicle
+     */
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "manufacturer_id", nullable = false)
-    private Motorbike manufacturer;
+    private Manufacturer manufacturer;
 
 }

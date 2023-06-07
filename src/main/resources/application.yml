@@ -1,11 +1,6 @@
 server:
   servlet:
     context-path: /motor-mingle
-
-spring:
-  profiles:
-    active: local
-
 ---
 spring:
   config:
@@ -24,7 +19,7 @@ spring:
 
   liquibase:
     parameters:
-      changeLogFile: src/main/resources/db/changelog/db.changelog-master.yml
+      changeLogFile: src/main/resources/db/changelog/db.changelog-master.yaml
 ---
 spring:
   config:
@@ -32,13 +27,13 @@ spring:
       on-profile: local
 
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/motormingle
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:motormingletest
     username: motormingle
     password: motormingle
 
   liquibase:
     parameters:
-      changeLogFile: src/main/resources/db/changelog/db.changelog-master.yml
+      changeLogFile: src/main/resources/db/changelog/db.changelog-master.yaml
 
-    change-log: db/changelog/db.changelog-master.yml
+    change-log: db/changelog/db.changelog-master.yaml
