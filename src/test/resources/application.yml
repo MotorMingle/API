@@ -8,10 +8,10 @@ spring:
       on-profile: gcp
 
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql:///database
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:motormingletest
+    username: motormingle
+    password: motormingle
 
   liquibase:
     parameters:
