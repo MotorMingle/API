@@ -265,7 +265,7 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_position
                   name: date
-                  type: DATE
+                  type: DATETIME
             tableName: position
   - changeSet:
       id: 1686231365815-12
@@ -463,7 +463,7 @@ databaseChangeLog:
             baseColumnNames: ownership_user_id,ownership_vehicle_id
             baseTableName: photo
             constraintName: FK_PHOTO_ON_OWUSIDOWVEID
-            referencedColumnNames: user_id
+            referencedColumnNames: user_id, vehicle_id
             referencedTableName: ownership
   - changeSet:
       id: 1686231365815-25

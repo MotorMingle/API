@@ -10,7 +10,7 @@ import org.hibernate.Hibernate;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -28,7 +28,7 @@ public class PositionId implements Serializable {
 
     @Column(name = "date", nullable = false)
     @NotNull
-    private LocalDate date;
+    private LocalDateTime date;
 
     /**
      * @param o Object to compare
