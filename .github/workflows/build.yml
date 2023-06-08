@@ -14,9 +14,11 @@ jobs:
       postgres:
         image: postgres
         env:
+          POSTGRES_DB: motormingle
           POSTGRES_USER: motormingle
           POSTGRES_PASSWORD: motormingle
-          POSTGRES_DB: motormingle
+        ports:
+          - 5432:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
