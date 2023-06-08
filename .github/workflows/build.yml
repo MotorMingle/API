@@ -3,12 +3,27 @@ on:
   push:
     branches:
       - main
+      - dev
   pull_request:
     types: [ opened, synchronize, reopened ]
 jobs:
   build:
     name: Build and analyze
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_DB: motormingle
+          POSTGRES_USER: motormingle
+          POSTGRES_PASSWORD: motormingle
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - uses: actions/checkout@v3
         with:
