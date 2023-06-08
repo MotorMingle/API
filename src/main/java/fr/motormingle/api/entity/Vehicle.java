@@ -27,7 +27,6 @@ public abstract class Vehicle {
      * Model name of the vehicle
      */
     @Column(name = "model", nullable = false, length = 100)
-    @NotNull
     @Size(min = 1, max = 100)
     private String model;
 
@@ -44,7 +43,6 @@ public abstract class Vehicle {
      * Horsepower of the vehicle
      */
     @Column(name = "horse_power")
-    @NotNull
     @Digits(integer = 4, fraction = 0)
     private Integer horsePower;
 
