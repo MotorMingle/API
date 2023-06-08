@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
-      id: 1686235034339-1
-      author: victo (generated)
+      id: 1686241777387-1
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createSequence:
@@ -9,8 +9,8 @@ databaseChangeLog:
             sequenceName: manufacturer_id_seq
             startValue: 1
   - changeSet:
-      id: 1686235034339-2
-      author: victo (generated)
+      id: 1686241777387-2
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createSequence:
@@ -18,8 +18,8 @@ databaseChangeLog:
             sequenceName: motorbike_type_id_seq
             startValue: 1
   - changeSet:
-      id: 1686235034339-3
-      author: victo (generated)
+      id: 1686241777387-3
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createSequence:
@@ -27,8 +27,8 @@ databaseChangeLog:
             sequenceName: vehicle_id_seq
             startValue: 1
   - changeSet:
-      id: 1686235034339-4
-      author: victo (generated)
+      id: 1686241777387-4
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createTable:
@@ -47,8 +47,8 @@ databaseChangeLog:
                   type: DOUBLE
             tableName: car
   - changeSet:
-      id: 1686235034339-5
-      author: victo (generated)
+      id: 1686241777387-5
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createTable:
@@ -67,8 +67,8 @@ databaseChangeLog:
                   type: VARCHAR(50)
             tableName: country
   - changeSet:
-      id: 1686235034339-6
-      author: victo (generated)
+      id: 1686241777387-6
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createTable:
@@ -109,8 +109,8 @@ databaseChangeLog:
                   type: UUID
             tableName: encounter
   - changeSet:
-      id: 1686235034339-7
-      author: victo (generated)
+      id: 1686241777387-7
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createTable:
@@ -135,8 +135,8 @@ databaseChangeLog:
                   type: VARCHAR(3)
             tableName: manufacturer
   - changeSet:
-      id: 1686235034339-8
-      author: victo (generated)
+      id: 1686241777387-8
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createTable:
@@ -159,8 +159,8 @@ databaseChangeLog:
                   type: INT
             tableName: motorbike
   - changeSet:
-      id: 1686235034339-9
-      author: victo (generated)
+      id: 1686241777387-9
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createTable:
@@ -180,8 +180,8 @@ databaseChangeLog:
                   type: VARCHAR(50)
             tableName: motorbike_type
   - changeSet:
-      id: 1686235034339-10
-      author: victo (generated)
+      id: 1686241777387-10
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createTable:
@@ -202,8 +202,8 @@ databaseChangeLog:
                   type: BIGINT
             tableName: ownership
   - changeSet:
-      id: 1686235034339-11
-      author: victo (generated)
+      id: 1686241777387-11
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createTable:
@@ -246,8 +246,40 @@ databaseChangeLog:
                   type: BIGINT
             tableName: photo
   - changeSet:
-      id: 1686235034339-12
-      author: victo (generated)
+      id: 1686241777387-12
+      author: brionnevi (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: latitude
+                  type: DOUBLE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: longitude
+                  type: DOUBLE
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_position
+                  name: user_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_position
+                  name: date
+                  type: DATETIME
+            tableName: position
+  - changeSet:
+      id: 1686241777387-13
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createTable:
@@ -292,8 +324,8 @@ databaseChangeLog:
                   type: INT
             tableName: user
   - changeSet:
-      id: 1686235034339-13
-      author: victo (generated)
+      id: 1686241777387-14
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - createTable:
@@ -327,8 +359,8 @@ databaseChangeLog:
                   type: BIGINT
             tableName: vehicle
   - changeSet:
-      id: 1686235034339-14
-      author: victo (generated)
+      id: 1686241777387-15
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addUniqueConstraint:
@@ -336,8 +368,8 @@ databaseChangeLog:
             constraintName: uc_user_email
             tableName: user
   - changeSet:
-      id: 1686235034339-15
-      author: victo (generated)
+      id: 1686241777387-16
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addUniqueConstraint:
@@ -345,8 +377,8 @@ databaseChangeLog:
             constraintName: uc_user_tag
             tableName: user
   - changeSet:
-      id: 1686235034339-16
-      author: victo (generated)
+      id: 1686241777387-17
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addForeignKeyConstraint:
@@ -356,8 +388,8 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: vehicle
   - changeSet:
-      id: 1686235034339-17
-      author: victo (generated)
+      id: 1686241777387-18
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addForeignKeyConstraint:
@@ -367,8 +399,8 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: user
   - changeSet:
-      id: 1686235034339-18
-      author: victo (generated)
+      id: 1686241777387-19
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addForeignKeyConstraint:
@@ -378,8 +410,8 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: user
   - changeSet:
-      id: 1686235034339-19
-      author: victo (generated)
+      id: 1686241777387-20
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addForeignKeyConstraint:
@@ -389,8 +421,8 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: country
   - changeSet:
-      id: 1686235034339-20
-      author: victo (generated)
+      id: 1686241777387-21
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addForeignKeyConstraint:
@@ -400,8 +432,8 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: vehicle
   - changeSet:
-      id: 1686235034339-21
-      author: victo (generated)
+      id: 1686241777387-22
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addForeignKeyConstraint:
@@ -411,8 +443,8 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: motorbike_type
   - changeSet:
-      id: 1686235034339-22
-      author: victo (generated)
+      id: 1686241777387-23
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addForeignKeyConstraint:
@@ -422,8 +454,8 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: user
   - changeSet:
-      id: 1686235034339-23
-      author: victo (generated)
+      id: 1686241777387-24
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addForeignKeyConstraint:
@@ -433,8 +465,8 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: vehicle
   - changeSet:
-      id: 1686235034339-24
-      author: victo (generated)
+      id: 1686241777387-25
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addForeignKeyConstraint:
@@ -444,8 +476,19 @@ databaseChangeLog:
             referencedColumnNames: user_id,vehicle_id
             referencedTableName: ownership
   - changeSet:
-      id: 1686235034339-25
-      author: victo (generated)
+      id: 1686241777387-26
+      author: brionnevi (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: position
+            constraintName: FK_POSITION_ON_USER
+            referencedColumnNames: id
+            referencedTableName: user
+  - changeSet:
+      id: 1686241777387-27
+      author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - addForeignKeyConstraint:
