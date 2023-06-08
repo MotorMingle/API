@@ -214,7 +214,6 @@
     <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.postgresql:postgresql:42.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.checkerframework:checker-qual:3.31.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:2.1.214" level="project" />
     <orderEntry type="library" name="Maven: org.springdoc:springdoc-openapi-ui:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.springdoc:springdoc-openapi-webmvc-core:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.springdoc:springdoc-openapi-common:1.7.0" level="project" />
