@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: brionnevi
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - loadData:
+            tableName: motorbike_type
+            file: ./data/motorbike_types.csv
+            separator: ';'
+            encoding: windows-1252
+            relativeToChangelogFile: true
