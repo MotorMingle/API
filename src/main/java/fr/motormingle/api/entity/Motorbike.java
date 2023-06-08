@@ -13,7 +13,7 @@ public class Motorbike extends Vehicle {
     /**
      * Motorbike motorization expressed in cubic centimeters.
      */
-    @Column(name = "capacity", nullable = false)
+    @Column(name = "capacity")
     @NotNull
     @Digits(integer = 4, fraction = 0)
     private Integer capacity;
