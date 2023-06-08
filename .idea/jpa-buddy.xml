@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JpaBuddyIdeaProjectConfig" ddlActionDbType="postgres" newRepositoryParent="org.springframework.data.jpa.repository.JpaRepository">
-    <option name="targetDiffType" value="SNAPSHOT" />
     <option name="defaultUnitInitialized" value="true" />
     <option name="renamerInitialized" value="true" />
+    <option name="sourceModelValue" value="Default" />
+    <option name="targetDbValue" value="81911ad6-d210-48d8-aa58-4d6b51e77a3a" />
     <option name="targetSnapshotValue" value="$PROJECT_DIR$/src/main/java/fr/motormingle/api/dto/data-model-snapshot.json" />
     <option name="isSnapshotDb" value="false" />
+    <option name="snapshotDbValue" value="81911ad6-d210-48d8-aa58-4d6b51e77a3a" />
     <option name="snapshotModelValue" value="Default" />
     <option name="snapshotDirValue" value="$PROJECT_DIR$/src/main/java/fr/motormingle/api/dto" />
     <option name="reverseEngineeringLastDbConnectionId" value="d3cd4fc4-953b-4ee8-9290-012da28129be" />
