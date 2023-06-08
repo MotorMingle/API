@@ -1,9 +1,6 @@
 package fr.motormingle.api.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -23,6 +20,8 @@ public class MotorbikeType {
      */
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "motorbike_type_id_seq")
+    @SequenceGenerator(name = "motorbike_type_id_seq", sequenceName = "motorbike_type_id_seq", allocationSize = 1)
     @NotNull
     private Integer id;
 
