@@ -5,7 +5,7 @@ top to bottom direction
 skinparam linetype ortho
 
 class car {
-   capacity: integer
+   capacity: numeric(1,3)
    id: bigint
 }
 class country {
@@ -58,13 +58,13 @@ class motorbike_type {
 }
 class ownership {
    user_id: uuid
-   vehicle_id: integer
+   vehicle_id: bigint
 }
 class photo {
    content: oid
    ownership_user_id: uuid
    ownership_vehicle_id: integer
-   id: integer
+   id: bigint
    user_id: uuid
    vehicle_id: integer
 }
