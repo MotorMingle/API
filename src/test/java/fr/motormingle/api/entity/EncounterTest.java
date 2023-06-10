@@ -38,7 +38,8 @@ class EncounterTest {
         encounter1.setHash("hash1");
         encounter1.setCount(1);
         encounter1.setDate(LocalDate.now());
-        encounter1.setStatus(EncounterStatus.ACCEPTED);
+        encounter1.setUser1Status(EncounterStatus.ACCEPTED);
+        encounter1.setUser2Status(EncounterStatus.ACCEPTED);
 
         encounter2 = new Encounter();
         EncounterId encounterId2 = new EncounterId();
@@ -50,7 +51,8 @@ class EncounterTest {
         encounter2.setHash("hash2");
         encounter2.setCount(2);
         encounter2.setDate(LocalDate.now().plusDays(1));
-        encounter2.setStatus(EncounterStatus.DECLINED);
+        encounter2.setUser1Status(EncounterStatus.DECLINED);
+        encounter2.setUser2Status(EncounterStatus.DECLINED);
     }
 
     @Test
@@ -63,16 +65,19 @@ class EncounterTest {
         assertEquals("hash1", encounter1.getHash());
         assertEquals(1, encounter1.getCount());
         assertEquals(LocalDate.now(), encounter1.getDate());
-        assertEquals(EncounterStatus.ACCEPTED, encounter1.getStatus());
+        assertEquals(EncounterStatus.ACCEPTED, encounter1.getUser1Status());
+        assertEquals(EncounterStatus.ACCEPTED, encounter1.getUser2Status());
 
         encounter1.setHash("newhash");
         encounter1.setCount(3);
         encounter1.setDate(LocalDate.now().plusDays(2));
-        encounter1.setStatus(EncounterStatus.PENDING);
+        encounter1.setUser1Status(EncounterStatus.PENDING);
+        encounter1.setUser2Status(EncounterStatus.PENDING);
 
         assertEquals("newhash", encounter1.getHash());
         assertEquals(3, encounter1.getCount());
         assertEquals(LocalDate.now().plusDays(2), encounter1.getDate());
-        assertEquals(EncounterStatus.PENDING, encounter1.getStatus());
+        assertEquals(EncounterStatus.PENDING, encounter1.getUser1Status());
+        assertEquals(EncounterStatus.PENDING, encounter1.getUser2Status());
     }
 }

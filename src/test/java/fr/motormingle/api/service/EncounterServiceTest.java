@@ -43,7 +43,8 @@ class EncounterServiceTest {
         encounter.setDate(LocalDate.now());
         encounter.setCount(1);
         encounter.setHash("hash");
-        encounter.setStatus(EncounterStatus.PENDING);
+        encounter.setUser1Status(EncounterStatus.PENDING);
+        encounter.setUser2Status(EncounterStatus.PENDING);
     }
 
     @Test
