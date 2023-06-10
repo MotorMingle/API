@@ -1,12 +1,12 @@
 databaseChangeLog:
   - changeSet:
-      id: 1
-      author: brionnevi
+      id: 6
+      author: enixoo
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - loadData:
-            tableName: country
-            file: ./data/countries.csv
+            tableName: user
+            file: ./data/users.csv
             separator: ';'
             encoding: windows-1252
             relativeToChangelogFile: true

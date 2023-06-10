@@ -91,7 +91,12 @@ databaseChangeLog:
               - column:
                   constraints:
                     nullable: false
-                  name: status
+                  name: user_1_status
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_2_status
                   type: VARCHAR(255)
               - column:
                   constraints:
@@ -200,6 +205,9 @@ databaseChangeLog:
                     primaryKeyName: pk_ownership
                   name: vehicle_id
                   type: BIGINT
+              - column:
+                  name: immatriculation
+                  type: VARCHAR(10)
             tableName: ownership
   - changeSet:
       id: 1686241777387-11
@@ -360,6 +368,41 @@ databaseChangeLog:
             tableName: vehicle
   - changeSet:
       id: 1686241777387-15
+      author: enixoo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: date
+                  type: DATE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_1_status
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_2_status
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_friendship
+                  name: user_id_1
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_friendship
+                  name: user_id_2
+                  type: UUID
+            tableName: friendship
+  - changeSet:
+      id: 1686241777387-16
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -368,7 +411,7 @@ databaseChangeLog:
             constraintName: uc_user_email
             tableName: user
   - changeSet:
-      id: 1686241777387-16
+      id: 1686241777387-17
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -377,7 +420,7 @@ databaseChangeLog:
             constraintName: uc_user_tag
             tableName: user
   - changeSet:
-      id: 1686241777387-17
+      id: 1686241777387-18
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -388,7 +431,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: vehicle
   - changeSet:
-      id: 1686241777387-18
+      id: 1686241777387-19
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -399,7 +442,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: user
   - changeSet:
-      id: 1686241777387-19
+      id: 1686241777387-20
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -410,7 +453,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: user
   - changeSet:
-      id: 1686241777387-20
+      id: 1686241777387-21
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -421,7 +464,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: country
   - changeSet:
-      id: 1686241777387-21
+      id: 1686241777387-22
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -432,7 +475,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: vehicle
   - changeSet:
-      id: 1686241777387-22
+      id: 1686241777387-23
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -443,7 +486,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: motorbike_type
   - changeSet:
-      id: 1686241777387-23
+      id: 1686241777387-24
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -454,7 +497,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: user
   - changeSet:
-      id: 1686241777387-24
+      id: 1686241777387-25
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -465,7 +508,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: vehicle
   - changeSet:
-      id: 1686241777387-25
+      id: 1686241777387-26
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -476,7 +519,7 @@ databaseChangeLog:
             referencedColumnNames: user_id,vehicle_id
             referencedTableName: ownership
   - changeSet:
-      id: 1686241777387-26
+      id: 1686241777387-27
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -487,7 +530,7 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: user
   - changeSet:
-      id: 1686241777387-27
+      id: 1686241777387-28
       author: brionnevi (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -497,4 +540,25 @@ databaseChangeLog:
             constraintName: FK_VEHICLE_ON_MANUFACTURER
             referencedColumnNames: id
             referencedTableName: manufacturer
-
+  - changeSet:
+      id: 1686241777387-29
+      author: enixoo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id_1
+            baseTableName: friendship
+            constraintName: FK_FRIENDSHIP_ON_USER_ID_1
+            referencedColumnNames: id
+            referencedTableName: user
+  - changeSet:
+      id: 1686241777387-30
+      author: enixoo (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id_2
+            baseTableName: friendship
+            constraintName: FK_FRIENSHIP_ON_USER_ID_2
+            referencedColumnNames: id
+            referencedTableName: user
