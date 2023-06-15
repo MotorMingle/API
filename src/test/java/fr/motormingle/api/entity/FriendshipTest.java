@@ -13,6 +13,8 @@ class FriendshipTest {
 
     private Friendship friendship1;
     private Friendship friendship2;
+    private UserPair userPair1;
+    private UserPairStats userPairStats1;
 
     @BeforeEach
     void setUp() {
@@ -29,26 +31,30 @@ class FriendshipTest {
         user3.setEmail("email3@example.com");
 
         friendship1 = new Friendship();
-        FriendshipId friendshipId1 = new FriendshipId();
-        friendshipId1.setUserId1(user1.getId());
-        friendshipId1.setUserId2(user2.getId());
-        friendship1.setId(friendshipId1);
+        userPair1 = new UserPair();
+        userPair1.setUserId1(user1.getId());
+        userPair1.setUserId2(user2.getId());
+        friendship1.setId(userPair1);
         friendship1.setUserId1(user1);
         friendship1.setUserId2(user2);
-        friendship1.setDate(LocalDate.now());
-        friendship1.setUser1Status(EncounterStatus.ACCEPTED);
-        friendship1.setUser2Status(EncounterStatus.ACCEPTED);
+        userPairStats1 = new UserPairStats();
+        userPairStats1.setDate(LocalDate.now().plusDays(1));
+        userPairStats1.setUser1Status(EncounterStatus.DECLINED);
+        userPairStats1.setUser2Status(EncounterStatus.DECLINED);
+        friendship2.setUserPairStats(userPairStats1);
 
         friendship2 = new Friendship();
-        FriendshipId friendshipId2 = new FriendshipId();
-        friendshipId2.setUserId1(user1.getId());
-        friendshipId2.setUserId2(user3.getId());
-        friendship2.setId(friendshipId2);
+        UserPair userPair2 = new UserPair();
+        userPair2.setUserId1(user1.getId());
+        userPair2.setUserId2(user3.getId());
+        friendship2.setId(userPair2);
         friendship2.setUserId1(user1);
         friendship2.setUserId2(user3);
-        friendship2.setDate(LocalDate.now().plusDays(1));
-        friendship2.setUser1Status(EncounterStatus.DECLINED);
-        friendship2.setUser2Status(EncounterStatus.DECLINED);
+        UserPairStats userPairStats2 = new UserPairStats();
+        userPairStats2.setDate(LocalDate.now().plusDays(1));
+        userPairStats2.setUser1Status(EncounterStatus.DECLINED);
+        userPairStats2.setUser2Status(EncounterStatus.DECLINED);
+        friendship2.setUserPairStats(userPairStats2);
     }
 
     @Test
@@ -58,16 +64,16 @@ class FriendshipTest {
 
     @Test
     void testSetterGetter() {
-        assertEquals(LocalDate.now(), friendship1.getDate());
-        assertEquals(EncounterStatus.ACCEPTED, friendship1.getUser1Status());
-        assertEquals(EncounterStatus.ACCEPTED, friendship1.getUser2Status());
+        assertEquals(userPair1, friendship1.getId());
+        assertEquals(userPair1.getUserId1(), friendship1.getUserId1().getId());
+        assertEquals(userPair1.getUserId2(), friendship1.getUserId2().getId());
+        assertEquals(userPairStats1, friendship1.getUserPairStats());
 
-        friendship1.setDate(LocalDate.now().plusDays(2));
-        friendship1.setUser1Status(EncounterStatus.PENDING);
-        friendship1.setUser2Status(EncounterStatus.PENDING);
+        userPairStats1.setDate(LocalDate.now().plusDays(2));
+        userPairStats1.setUser1Status(EncounterStatus.PENDING);
+        userPairStats1.setUser2Status(EncounterStatus.PENDING);
+        friendship1.setUserPairStats(userPairStats1);
 
-        assertEquals(LocalDate.now().plusDays(2), friendship1.getDate());
-        assertEquals(EncounterStatus.PENDING, friendship1.getUser1Status());
-        assertEquals(EncounterStatus.PENDING, friendship1.getUser2Status());
+        assertEquals(userPairStats1, friendship1.getUserPairStats());
     }
 }

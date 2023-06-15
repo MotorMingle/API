@@ -2,11 +2,8 @@ package fr.motormingle.api.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -14,7 +11,7 @@ import java.time.LocalDate;
 @Entity
 public class Friendship {
     @EmbeddedId
-    private FriendshipId id;
+    private UserPair id;
 
     @MapsId("userId1")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -28,19 +25,14 @@ public class Friendship {
     @NotNull
     private User userId2;
 
-    @Column(name = "date")
-    @NotNull
-    private LocalDate date;
-
-    @Column(name = "user_1_status", nullable = false)
-    @Enumerated(EnumType.STRING)
-    @NotNull
-    @Pattern(regexp = "ACCEPTED|DECLINED|PENDING")
-    private EncounterStatus user1Status;
-
-    @Column(name = "user_2_status", nullable = false)
-    @Enumerated(EnumType.STRING)
-    @NotNull
-    @Pattern(regexp = "ACCEPTED|DECLINED|PENDING")
-    private EncounterStatus user2Status;
+    /**
+     * Contains :
+     * <ul>
+     *  <li>the date of the friendship between the two users.</li>
+     *  <li>the user1's status</li>
+     *  <li>the user2's status</li>
+     * </ul>
+     */
+    @Embedded
+    private UserPairStats userPairStats;
 }

@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class FriendshipId implements Serializable {
+public class UserPair implements Serializable {
     @Serial
     private static final long serialVersionUID = 5225502204442041057L;
 
@@ -36,7 +36,7 @@ public class FriendshipId implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        FriendshipId entity = (FriendshipId) o;
+        UserPair entity = (UserPair) o;
         return Objects.equals(this.userId1, entity.userId1) &&
                 Objects.equals(this.userId2, entity.userId2);
     }

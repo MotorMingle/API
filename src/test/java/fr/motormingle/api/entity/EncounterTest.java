@@ -13,6 +13,8 @@ class EncounterTest {
 
     private Encounter encounter1;
     private Encounter encounter2;
+    private UserPair userPair1;
+    private UserPairStats userPairStats1;
 
     @BeforeEach
     void setUp() {
@@ -29,30 +31,34 @@ class EncounterTest {
         user3.setEmail("email3@example.com");
 
         encounter1 = new Encounter();
-        EncounterId encounterId1 = new EncounterId();
-        encounterId1.setUserId1(user1.getId());
-        encounterId1.setUserId2(user2.getId());
-        encounter1.setId(encounterId1);
+        userPair1 = new UserPair();
+        userPair1.setUserId1(user1.getId());
+        userPair1.setUserId2(user2.getId());
+        encounter1.setId(userPair1);
         encounter1.setUserId1(user1);
         encounter1.setUserId2(user2);
         encounter1.setHash("hash1");
         encounter1.setCount(1);
-        encounter1.setDate(LocalDate.now());
-        encounter1.setUser1Status(EncounterStatus.ACCEPTED);
-        encounter1.setUser2Status(EncounterStatus.ACCEPTED);
+        userPairStats1 = new UserPairStats();
+        userPairStats1.setDate(LocalDate.now());
+        userPairStats1.setUser1Status(EncounterStatus.ACCEPTED);
+        userPairStats1.setUser2Status(EncounterStatus.ACCEPTED);
+        encounter1.setUserPairStats(userPairStats1);
 
         encounter2 = new Encounter();
-        EncounterId encounterId2 = new EncounterId();
-        encounterId2.setUserId1(user1.getId());
-        encounterId2.setUserId2(user3.getId());
-        encounter2.setId(encounterId2);
+        UserPair userPair2 = new UserPair();
+        userPair2.setUserId1(user1.getId());
+        userPair2.setUserId2(user3.getId());
+        encounter2.setId(userPair2);
         encounter2.setUserId1(user1);
         encounter2.setUserId2(user3);
         encounter2.setHash("hash2");
         encounter2.setCount(2);
-        encounter2.setDate(LocalDate.now().plusDays(1));
-        encounter2.setUser1Status(EncounterStatus.DECLINED);
-        encounter2.setUser2Status(EncounterStatus.DECLINED);
+        UserPairStats userPairStats2 = new UserPairStats();
+        userPairStats2.setDate(LocalDate.now().plusDays(1));
+        userPairStats2.setUser1Status(EncounterStatus.DECLINED);
+        userPairStats2.setUser2Status(EncounterStatus.DECLINED);
+        encounter2.setUserPairStats(userPairStats2);
     }
 
     @Test
@@ -62,22 +68,22 @@ class EncounterTest {
 
     @Test
     void testSetterGetter() {
+        assertEquals(userPair1, encounter1.getId());
+        assertEquals(userPair1.getUserId1(), encounter1.getUserId1().getId());
+        assertEquals(userPair1.getUserId2(), encounter1.getUserId2().getId());
         assertEquals("hash1", encounter1.getHash());
         assertEquals(1, encounter1.getCount());
-        assertEquals(LocalDate.now(), encounter1.getDate());
-        assertEquals(EncounterStatus.ACCEPTED, encounter1.getUser1Status());
-        assertEquals(EncounterStatus.ACCEPTED, encounter1.getUser2Status());
+        assertEquals(userPairStats1, encounter1.getUserPairStats());
 
         encounter1.setHash("newhash");
         encounter1.setCount(3);
-        encounter1.setDate(LocalDate.now().plusDays(2));
-        encounter1.setUser1Status(EncounterStatus.PENDING);
-        encounter1.setUser2Status(EncounterStatus.PENDING);
+        userPairStats1.setDate(LocalDate.now().plusDays(2));
+        userPairStats1.setUser1Status(EncounterStatus.PENDING);
+        userPairStats1.setUser2Status(EncounterStatus.PENDING);
+        encounter1.setUserPairStats(userPairStats1);
 
         assertEquals("newhash", encounter1.getHash());
         assertEquals(3, encounter1.getCount());
-        assertEquals(LocalDate.now().plusDays(2), encounter1.getDate());
-        assertEquals(EncounterStatus.PENDING, encounter1.getUser1Status());
-        assertEquals(EncounterStatus.PENDING, encounter1.getUser2Status());
+        assertEquals(userPairStats1, encounter1.getUserPairStats());
     }
 }

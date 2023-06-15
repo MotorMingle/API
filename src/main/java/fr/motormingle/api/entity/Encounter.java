@@ -2,12 +2,9 @@ package fr.motormingle.api.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -15,7 +12,7 @@ import java.time.LocalDate;
 @Table(name = "encounter")
 public class Encounter {
     @EmbeddedId
-    private EncounterId id;
+    private UserPair id;
 
     @MapsId("userId1")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -45,25 +42,13 @@ public class Encounter {
     private int count;
 
     /**
-     * Last date of the encounter.
+     * Contains :
+     * <ul>
+     *  <li>the date of the last encounter between the two users.</li>
+     *  <li>the user1's status</li>
+     *  <li>the user2's status</li>
+     * </ul>
      */
-    @Column(name = "date", nullable = false)
-    @NotNull
-    private LocalDate date;
-
-    /**
-     * The status of the encounter enumerated by the {@code EncounterStatus} enum.
-     */
-    @Column(name = "user_1_status", nullable = false)
-    @Enumerated(EnumType.STRING)
-    @NotNull
-    @Pattern(regexp = "ACCEPTED|DECLINED|PENDING")
-    private EncounterStatus user1Status;
-
-    @Column(name = "user_2_status", nullable = false)
-    @Enumerated(EnumType.STRING)
-    @NotNull
-    @Pattern(regexp = "ACCEPTED|DECLINED|PENDING")
-    private EncounterStatus user2Status;
-
+    @Embedded
+    private UserPairStats userPairStats;
 }
