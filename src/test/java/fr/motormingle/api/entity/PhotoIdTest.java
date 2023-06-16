@@ -13,15 +13,15 @@ class PhotoIdTest {
     private PhotoId photoId1;
     private PhotoId photoId2;
     private OwnershipId ownershipId1;
-    private OwnershipId ownershipId2;
 
     @BeforeEach
     void setUp() {
+        UUID userId = UUID.randomUUID();
         ownershipId1 = new OwnershipId();
-        ownershipId1.setUserId(UUID.randomUUID());
+        ownershipId1.setUserId(userId);
         ownershipId1.setVehicleId(1L);
 
-        ownershipId2 = new OwnershipId();
+        OwnershipId ownershipId2 = new OwnershipId();
         ownershipId2.setUserId(UUID.randomUUID());
         ownershipId2.setVehicleId(2L);
 
@@ -35,19 +35,29 @@ class PhotoIdTest {
     }
 
     @Test
-    void testSetterGetter() {
+    void testSetterAndGetter() {
         assertEquals(1L, photoId1.getId());
         assertEquals(ownershipId1, photoId1.getOwnershipId());
-
-        photoId1.setId(3L);
-        photoId1.setOwnershipId(ownershipId2);
-
-        assertEquals(3L, photoId1.getId());
-        assertEquals(ownershipId2, photoId1.getOwnershipId());
     }
 
     @Test
-    void testEquality() {
+    void testEquals() {
+        assertEquals(photoId1, photoId1);
+
+        assertNotEquals(photoId1, new Object());
+
         assertNotEquals(photoId1, photoId2);
+        photoId2.setId(1L);
+        assertNotEquals(photoId1, photoId2);
+        photoId2.setOwnershipId(ownershipId1);
+        assertEquals(photoId1, photoId2);
+
+        assertNotEquals(photoId1, new PhotoId());
+    }
+
+    @Test
+    void testHashCode() {
+        assertEquals(photoId1.hashCode(), photoId1.hashCode());
+        assertNotEquals(photoId1.hashCode(), new PhotoId().hashCode());
     }
 }

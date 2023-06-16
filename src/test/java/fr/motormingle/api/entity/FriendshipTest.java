@@ -41,7 +41,7 @@ class FriendshipTest {
         userPairStats1.setDate(LocalDate.now().plusDays(1));
         userPairStats1.setUser1Status(EncounterStatus.DECLINED);
         userPairStats1.setUser2Status(EncounterStatus.DECLINED);
-        friendship2.setUserPairStats(userPairStats1);
+        friendship1.setUserPairStats(userPairStats1);
 
         friendship2 = new Friendship();
         UserPair userPair2 = new UserPair();
