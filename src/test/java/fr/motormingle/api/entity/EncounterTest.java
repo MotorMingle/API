@@ -13,7 +13,7 @@ class EncounterTest {
 
     private Encounter encounter1;
     private Encounter encounter2;
-    private UserPair userPair1;
+    private UserPairId userPairId1;
     private UserPairStats userPairStats1;
 
     @BeforeEach
@@ -31,10 +31,10 @@ class EncounterTest {
         user3.setEmail("email3@example.com");
 
         encounter1 = new Encounter();
-        userPair1 = new UserPair();
-        userPair1.setUserId1(user1.getId());
-        userPair1.setUserId2(user2.getId());
-        encounter1.setId(userPair1);
+        userPairId1 = new UserPairId();
+        userPairId1.setUserId1(user1.getId());
+        userPairId1.setUserId2(user2.getId());
+        encounter1.setId(userPairId1);
         encounter1.setUserId1(user1);
         encounter1.setUserId2(user2);
         encounter1.setHash("hash1");
@@ -46,10 +46,10 @@ class EncounterTest {
         encounter1.setUserPairStats(userPairStats1);
 
         encounter2 = new Encounter();
-        UserPair userPair2 = new UserPair();
-        userPair2.setUserId1(user1.getId());
-        userPair2.setUserId2(user3.getId());
-        encounter2.setId(userPair2);
+        UserPairId userPairId2 = new UserPairId();
+        userPairId2.setUserId1(user1.getId());
+        userPairId2.setUserId2(user3.getId());
+        encounter2.setId(userPairId2);
         encounter2.setUserId1(user1);
         encounter2.setUserId2(user3);
         encounter2.setHash("hash2");
@@ -68,9 +68,9 @@ class EncounterTest {
 
     @Test
     void testSetterGetter() {
-        assertEquals(userPair1, encounter1.getId());
-        assertEquals(userPair1.getUserId1(), encounter1.getUserId1().getId());
-        assertEquals(userPair1.getUserId2(), encounter1.getUserId2().getId());
+        assertEquals(userPairId1, encounter1.getId());
+        assertEquals(userPairId1.getUserId1(), encounter1.getUserId1().getId());
+        assertEquals(userPairId1.getUserId2(), encounter1.getUserId2().getId());
         assertEquals("hash1", encounter1.getHash());
         assertEquals(1, encounter1.getCount());
         assertEquals(userPairStats1, encounter1.getUserPairStats());

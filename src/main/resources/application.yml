@@ -1,6 +1,13 @@
 server:
   servlet:
     context-path: /motor-mingle
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
 ---
 spring:
   config:
@@ -37,3 +44,6 @@ spring:
       changeLogFile: src/main/resources/db/changelog/db.changelog-master.yaml
 
     change-log: db/changelog/db.changelog-master.yaml
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: DEBUG
