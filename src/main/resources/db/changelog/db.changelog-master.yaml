@@ -17,3 +17,9 @@ databaseChangeLog:
   - include:
       file: db.insert-motorbikes.yaml
       relativeToChangelogFile: true
+  - include:
+      file: db.insert-users.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: db.insert-positions.yaml
+      relativeToChangelogFile: true

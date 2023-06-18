@@ -36,4 +36,7 @@ public class Ownership {
     @NotNull
     private Vehicle vehicle;
 
+    @Column(name = "immatriculation")
+    private String immatriculation;
+
 }

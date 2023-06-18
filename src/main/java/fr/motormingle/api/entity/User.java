@@ -11,6 +11,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -18,7 +19,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
     @Id
     @Column(name = "id", nullable = false, length = 50)
     @NotNull

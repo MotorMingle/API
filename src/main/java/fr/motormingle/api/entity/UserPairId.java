@@ -1,7 +1,6 @@
 package fr.motormingle.api.entity;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -13,15 +12,11 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
-/**
- * Encounter composite identifier class
- */
 @Getter
 @Setter
-@Embeddable
-public class EncounterId implements Serializable {
+public class UserPairId implements Serializable {
     @Serial
-    private static final long serialVersionUID = -1888100727307985572L;
+    private static final long serialVersionUID = 5225502204442041057L;
 
     @Column(name = "user_id_1", nullable = false, length = 50)
     @NotNull
@@ -41,7 +36,7 @@ public class EncounterId implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        EncounterId entity = (EncounterId) o;
+        UserPairId entity = (UserPairId) o;
         return Objects.equals(this.userId1, entity.userId1) &&
                 Objects.equals(this.userId2, entity.userId2);
     }
