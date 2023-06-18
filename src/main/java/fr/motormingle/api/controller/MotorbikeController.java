@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/motorbike")
+@RequestMapping("/api/v1/motorbike")
 public class MotorbikeController implements GetController<Motorbike, Long> {
 
     @Autowired

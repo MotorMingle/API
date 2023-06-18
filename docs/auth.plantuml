@@ -1,0 +1,29 @@
+@startuml
+
+autonumber
+
+actor "User" #red
+entity "Mobile application" #blue
+entity "Identity provider" #yellow
+entity "API" #green
+
+"User" -> "Mobile application": Click login
+"Mobile application" -> "Mobile application": Generate code verifier and code challenge
+"Mobile application" -> "Identity provider": Auhorization code + code challenge
+"Identity provider" --> "User": Authorization prompt
+"User" -> "Identity provider": Authorize and consent
+"Identity provider" --> "Mobile application": Authorization code
+"Mobile application" -> "Identity provider": Authorization code + code verifier
+"Identity provider" -> "Identity provider": Validate code verifier and challenge
+"Identity provider" --> "Mobile application": ID token and access token
+"Mobile application" -> "API": Request with access token
+"API" -> "Identity provider": Validate access token request
+"Identity provider" --> "API": Access token validation response
+"API" -> "API": Create user session with JWT
+"API" --> "Mobile application": Response
+"Mobile application" -> "User": Display profile creation form
+"User" -> "Mobile application": Submit profile creation form
+"Mobile application" -> "API": Profile creation request
+"API" -> "API": Create user profile
+"API" --> "Mobile application": Response
+@enduml
