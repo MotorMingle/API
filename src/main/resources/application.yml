@@ -1,13 +1,6 @@
 server:
   servlet:
     context-path: /motor-mingle
-
-spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: https://accounts.google.com
 ---
 spring:
   config:
