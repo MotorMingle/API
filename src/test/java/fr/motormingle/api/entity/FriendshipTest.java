@@ -13,7 +13,7 @@ class FriendshipTest {
 
     private Friendship friendship1;
     private Friendship friendship2;
-    private UserPair userPair1;
+    private UserPairId userPairId1;
     private UserPairStats userPairStats1;
 
     @BeforeEach
@@ -31,10 +31,10 @@ class FriendshipTest {
         user3.setEmail("email3@example.com");
 
         friendship1 = new Friendship();
-        userPair1 = new UserPair();
-        userPair1.setUserId1(user1.getId());
-        userPair1.setUserId2(user2.getId());
-        friendship1.setId(userPair1);
+        userPairId1 = new UserPairId();
+        userPairId1.setUserId1(user1.getId());
+        userPairId1.setUserId2(user2.getId());
+        friendship1.setId(userPairId1);
         friendship1.setUserId1(user1);
         friendship1.setUserId2(user2);
         userPairStats1 = new UserPairStats();
@@ -44,7 +44,7 @@ class FriendshipTest {
         friendship1.setUserPairStats(userPairStats1);
 
         friendship2 = new Friendship();
-        UserPair userPair2 = new UserPair();
+        UserPairId userPair2 = new UserPairId();
         userPair2.setUserId1(user1.getId());
         userPair2.setUserId2(user3.getId());
         friendship2.setId(userPair2);
@@ -64,9 +64,9 @@ class FriendshipTest {
 
     @Test
     void testSetterGetter() {
-        assertEquals(userPair1, friendship1.getId());
-        assertEquals(userPair1.getUserId1(), friendship1.getUserId1().getId());
-        assertEquals(userPair1.getUserId2(), friendship1.getUserId2().getId());
+        assertEquals(userPairId1, friendship1.getId());
+        assertEquals(userPairId1.getUserId1(), friendship1.getUserId1().getId());
+        assertEquals(userPairId1.getUserId2(), friendship1.getUserId2().getId());
         assertEquals(userPairStats1, friendship1.getUserPairStats());
 
         userPairStats1.setDate(LocalDate.now().plusDays(2));

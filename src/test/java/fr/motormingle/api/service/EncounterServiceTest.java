@@ -1,7 +1,7 @@
 package fr.motormingle.api.service;
 
 import fr.motormingle.api.entity.Encounter;
-import fr.motormingle.api.entity.UserPair;
+import fr.motormingle.api.entity.UserPairId;
 import fr.motormingle.api.entity.UserPairStats;
 import fr.motormingle.api.repository.EncounterRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,7 +33,7 @@ class EncounterServiceTest {
     public void setup() {
         MockitoAnnotations.openMocks(this);
 
-        UserPair userPair1 = new UserPair();
+        UserPairId userPair1 = new UserPairId();
         userPair1.setUserId1(UUID.randomUUID());
         userPair1.setUserId2(UUID.randomUUID());
         UserPairStats userPairStats1 = new UserPairStats();
@@ -56,7 +56,7 @@ class EncounterServiceTest {
 
     @Test
     void testFindById() {
-        when(encounterRepository.findById(any(UserPair.class))).thenReturn(Optional.of(encounter));
+        when(encounterRepository.findById(any(UserPairId.class))).thenReturn(Optional.of(encounter));
 
         Encounter result = encounterService.findById(encounter.getId());
         assertEquals(encounter, result);
