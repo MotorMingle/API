@@ -18,25 +18,25 @@ class EncounterTest {
 
     @BeforeEach
     void setUp() {
-        User user1 = new User();
-        user1.setId(UUID.randomUUID());
-        user1.setEmail("email1@example.com");
+        Mingler mingler1 = new Mingler();
+        mingler1.setId(UUID.randomUUID());
+        mingler1.setEmail("email1@example.com");
 
-        User user2 = new User();
-        user2.setId(UUID.randomUUID());
-        user2.setEmail("email2@example.com");
+        Mingler mingler2 = new Mingler();
+        mingler2.setId(UUID.randomUUID());
+        mingler2.setEmail("email2@example.com");
 
-        User user3 = new User();
-        user3.setId(UUID.randomUUID());
-        user3.setEmail("email3@example.com");
+        Mingler mingler3 = new Mingler();
+        mingler3.setId(UUID.randomUUID());
+        mingler3.setEmail("email3@example.com");
 
         encounter1 = new Encounter();
         userPairId1 = new UserPairId();
-        userPairId1.setUserId1(user1.getId());
-        userPairId1.setUserId2(user2.getId());
+        userPairId1.setUserId1(mingler1.getId());
+        userPairId1.setUserId2(mingler2.getId());
         encounter1.setId(userPairId1);
-        encounter1.setUserId1(user1);
-        encounter1.setUserId2(user2);
+        encounter1.setMinglerId1(mingler1);
+        encounter1.setMinglerId2(mingler2);
         encounter1.setHash("hash1");
         encounter1.setCount(1);
         userPairStats1 = new UserPairStats();
@@ -47,11 +47,11 @@ class EncounterTest {
 
         encounter2 = new Encounter();
         UserPairId userPairId2 = new UserPairId();
-        userPairId2.setUserId1(user1.getId());
-        userPairId2.setUserId2(user3.getId());
+        userPairId2.setUserId1(mingler1.getId());
+        userPairId2.setUserId2(mingler3.getId());
         encounter2.setId(userPairId2);
-        encounter2.setUserId1(user1);
-        encounter2.setUserId2(user3);
+        encounter2.setMinglerId1(mingler1);
+        encounter2.setMinglerId2(mingler3);
         encounter2.setHash("hash2");
         encounter2.setCount(2);
         UserPairStats userPairStats2 = new UserPairStats();
@@ -69,8 +69,8 @@ class EncounterTest {
     @Test
     void testSetterGetter() {
         assertEquals(userPairId1, encounter1.getId());
-        assertEquals(userPairId1.getUserId1(), encounter1.getUserId1().getId());
-        assertEquals(userPairId1.getUserId2(), encounter1.getUserId2().getId());
+        assertEquals(userPairId1.getUserId1(), encounter1.getMinglerId1().getId());
+        assertEquals(userPairId1.getUserId2(), encounter1.getMinglerId2().getId());
         assertEquals("hash1", encounter1.getHash());
         assertEquals(1, encounter1.getCount());
         assertEquals(userPairStats1, encounter1.getUserPairStats());

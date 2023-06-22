@@ -1,8 +1,8 @@
 package fr.motormingle.api.service;
 
 import fr.motormingle.api.entity.Car;
+import fr.motormingle.api.entity.Mingler;
 import fr.motormingle.api.entity.Ownership;
-import fr.motormingle.api.entity.User;
 import fr.motormingle.api.entity.Vehicle;
 import fr.motormingle.api.repository.OwnershipRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,15 +34,15 @@ class OwnershipServiceTest {
     void setup() {
         MockitoAnnotations.openMocks(this);
 
-        User user = new User();
-        user.setId(UUID.randomUUID());
-        user.setEmail("test@test.com");
+        Mingler mingler = new Mingler();
+        mingler.setId(UUID.randomUUID());
+        mingler.setEmail("test@test.com");
 
         Vehicle vehicle = new Car();
         vehicle.setId(1L);
 
         ownership = new Ownership();
-        ownership.setUser(user);
+        ownership.setMingler(mingler);
         ownership.setVehicle(vehicle);
     }
 

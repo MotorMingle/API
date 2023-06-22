@@ -12,20 +12,20 @@ class OwnershipTest {
 
     private Ownership ownership1;
     private Ownership ownership2;
-    private User user1;
-    private User user2;
+    private Mingler mingler1;
+    private Mingler mingler2;
     private Vehicle vehicle1;
     private Vehicle vehicle2;
 
     @BeforeEach
     void setUp() {
-        user1 = new User();
-        user1.setId(UUID.randomUUID());
-        user1.setEmail("user1@example.com");
+        mingler1 = new Mingler();
+        mingler1.setId(UUID.randomUUID());
+        mingler1.setEmail("user1@example.com");
 
-        user2 = new User();
-        user2.setId(UUID.randomUUID());
-        user2.setEmail("user2@example.com");
+        mingler2 = new Mingler();
+        mingler2.setId(UUID.randomUUID());
+        mingler2.setEmail("user2@example.com");
 
         vehicle1 = new Car();
         vehicle1.setId(1L);
@@ -34,33 +34,33 @@ class OwnershipTest {
         vehicle2.setId(2L);
 
         OwnershipId ownershipId1 = new OwnershipId();
-        ownershipId1.setUserId(user1.getId());
+        ownershipId1.setUserId(mingler1.getId());
         ownershipId1.setVehicleId(vehicle1.getId());
 
         OwnershipId ownershipId2 = new OwnershipId();
-        ownershipId2.setUserId(user2.getId());
+        ownershipId2.setUserId(mingler2.getId());
         ownershipId2.setVehicleId(vehicle2.getId());
 
         ownership1 = new Ownership();
         ownership1.setId(ownershipId1);
-        ownership1.setUser(user1);
+        ownership1.setMingler(mingler1);
         ownership1.setVehicle(vehicle1);
 
         ownership2 = new Ownership();
         ownership2.setId(ownershipId2);
-        ownership2.setUser(user2);
+        ownership2.setMingler(mingler2);
         ownership2.setVehicle(vehicle2);
     }
 
     @Test
     void testSetterGetter() {
-        assertEquals(user1, ownership1.getUser());
+        assertEquals(mingler1, ownership1.getMingler());
         assertEquals(vehicle1, ownership1.getVehicle());
 
-        ownership1.setUser(user2);
+        ownership1.setMingler(mingler2);
         ownership1.setVehicle(vehicle2);
 
-        assertEquals(user2, ownership1.getUser());
+        assertEquals(mingler2, ownership1.getMingler());
         assertEquals(vehicle2, ownership1.getVehicle());
     }
 

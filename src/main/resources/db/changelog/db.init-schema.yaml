@@ -305,23 +305,15 @@ databaseChangeLog:
                   name: email
                   type: VARCHAR(50)
               - column:
-                  constraints:
-                    nullable: false
                   name: tag
                   type: VARCHAR(50)
               - column:
-                  constraints:
-                    nullable: false
                   name: first_name
                   type: VARCHAR(50)
               - column:
-                  constraints:
-                    nullable: false
                   name: last_name
                   type: VARCHAR(50)
               - column:
-                  constraints:
-                    nullable: false
                   name: birth_date
                   type: DATE
               - column:
@@ -330,7 +322,7 @@ databaseChangeLog:
               - column:
                   name: maximal_age
                   type: INT
-            tableName: user
+            tableName: mingler
   - changeSet:
       id: 1686241777387-14
       author: brionnevi (generated)
@@ -409,7 +401,7 @@ databaseChangeLog:
         - addUniqueConstraint:
             columnNames: email
             constraintName: uc_user_email
-            tableName: user
+            tableName: mingler
   - changeSet:
       id: 1686241777387-17
       author: brionnevi (generated)
@@ -418,7 +410,7 @@ databaseChangeLog:
         - addUniqueConstraint:
             columnNames: tag
             constraintName: uc_user_tag
-            tableName: user
+            tableName: mingler
   - changeSet:
       id: 1686241777387-18
       author: brionnevi (generated)
@@ -440,7 +432,7 @@ databaseChangeLog:
             baseTableName: encounter
             constraintName: FK_ENCOUNTER_ON_USER_ID_1
             referencedColumnNames: id
-            referencedTableName: user
+            referencedTableName: mingler
   - changeSet:
       id: 1686241777387-20
       author: brionnevi (generated)
@@ -451,7 +443,7 @@ databaseChangeLog:
             baseTableName: encounter
             constraintName: FK_ENCOUNTER_ON_USER_ID_2
             referencedColumnNames: id
-            referencedTableName: user
+            referencedTableName: mingler
   - changeSet:
       id: 1686241777387-21
       author: brionnevi (generated)
@@ -495,7 +487,7 @@ databaseChangeLog:
             baseTableName: ownership
             constraintName: FK_OWNERSHIP_ON_USER
             referencedColumnNames: id
-            referencedTableName: user
+            referencedTableName: mingler
   - changeSet:
       id: 1686241777387-25
       author: brionnevi (generated)
@@ -528,7 +520,7 @@ databaseChangeLog:
             baseTableName: position
             constraintName: FK_POSITION_ON_USER
             referencedColumnNames: id
-            referencedTableName: user
+            referencedTableName: mingler
   - changeSet:
       id: 1686241777387-28
       author: brionnevi (generated)
@@ -550,7 +542,7 @@ databaseChangeLog:
             baseTableName: friendship
             constraintName: FK_FRIENDSHIP_ON_USER_ID_1
             referencedColumnNames: id
-            referencedTableName: user
+            referencedTableName: mingler
   - changeSet:
       id: 1686241777387-30
       author: enixoo (generated)
@@ -561,4 +553,4 @@ databaseChangeLog:
             baseTableName: friendship
             constraintName: FK_FRIENSHIP_ON_USER_ID_2
             referencedColumnNames: id
-            referencedTableName: user
+            referencedTableName: mingler

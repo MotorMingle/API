@@ -8,7 +8,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-class UserPairTest {
+class MinglerPairTest {
 
     private UUID userId1;
     private UUID userId2;

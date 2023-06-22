@@ -25,7 +25,7 @@ public class Ownership {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     @NotNull
-    private User user;
+    private Mingler mingler;
 
     /**
      * The vehicle owned by the user.
