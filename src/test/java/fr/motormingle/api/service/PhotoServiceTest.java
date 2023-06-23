@@ -34,16 +34,16 @@ class PhotoServiceTest {
     public void setup() throws SQLException {
         MockitoAnnotations.openMocks(this);
 
-        User user = new User();
-        user.setId(UUID.randomUUID());
-        user.setEmail("test@test.com");
+        Mingler mingler = new Mingler();
+        mingler.setId(UUID.randomUUID());
+        mingler.setEmail("test@test.com");
 
         Ownership ownership = new Ownership();
         OwnershipId ownershipId = new OwnershipId();
-        ownershipId.setUserId(user.getId());
+        ownershipId.setUserId(mingler.getId());
         ownershipId.setVehicleId(1L);
         ownership.setId(ownershipId);
-        ownership.setUser(user);
+        ownership.setMingler(mingler);
 
         photo = new Photo();
         PhotoId photoId = new PhotoId();

@@ -14,9 +14,9 @@ class PositionTest {
         Position position = new Position();
 
         UUID uuid = UUID.randomUUID();
-        User user = new User();
-        user.setId(uuid);
-        position.setUser(user);
+        Mingler mingler = new Mingler();
+        mingler.setId(uuid);
+        position.setMingler(mingler);
 
         LocalDateTime now = LocalDateTime.now();
         PositionId positionId = new PositionId();
@@ -27,7 +27,7 @@ class PositionTest {
         position.setLatitude(12.34);
         position.setLongitude(56.78);
 
-        assertEquals(user, position.getUser());
+        assertEquals(mingler, position.getMingler());
         assertEquals(positionId, position.getId());
         assertEquals(12.34, position.getLatitude());
         assertEquals(56.78, position.getLongitude());

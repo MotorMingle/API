@@ -18,7 +18,7 @@ public class Position {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     @NotNull
-    private User user;
+    private Mingler mingler;
 
     @Column(name = "latitude", nullable = false)
     @NotNull

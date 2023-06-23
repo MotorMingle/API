@@ -5,7 +5,7 @@ databaseChangeLog:
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
         - loadData:
-            tableName: user
+            tableName: mingler
             file: ./data/users.csv
             separator: ';'
             encoding: windows-1252

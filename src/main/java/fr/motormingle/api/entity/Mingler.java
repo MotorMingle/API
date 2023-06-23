@@ -18,14 +18,14 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "user")
-public class User implements Serializable {
+@Table(name = "mingler")
+public class Mingler implements Serializable {
     @Id
     @Column(name = "id", nullable = false, length = 50)
     @NotNull
     private UUID id;
 
-    @Column(name = "email", nullable = false, length = 50, unique = true)
+    @Column(name = "email", length = 50, unique = true)
     @NotNull
     @Email
     private String email;
@@ -33,22 +33,22 @@ public class User implements Serializable {
     /**
      * Tag is a unique identifier for the user
      */
-    @Column(name = "tag", nullable = false, length = 50, unique = true)
+    @Column(name = "tag", length = 50, unique = true)
     @NotNull
     @Size(min = 1, max = 50)
     private String tag;
 
-    @Column(name = "first_name", nullable = false, length = 50)
+    @Column(name = "first_name", length = 50)
     @NotNull
     @Size(min = 1, max = 50)
     private String firstName;
 
-    @Column(name = "last_name", nullable = false, length = 50)
+    @Column(name = "last_name", length = 50)
     @NotNull
     @Size(min = 1, max = 50)
     private String lastName;
 
-    @Column(name = "birth_date", nullable = false)
+    @Column(name = "birth_date")
     @Past
     private LocalDate birthDate;
 

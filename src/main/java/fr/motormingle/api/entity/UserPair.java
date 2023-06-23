@@ -17,12 +17,12 @@ public abstract class UserPair {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id_1", nullable = false)
     @NotNull
-    private User userId1;
+    private Mingler minglerId1;
 
     @MapsId("userId2")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id_2", nullable = false)
     @NotNull
-    private User userId2;
+    private Mingler minglerId2;
 
 }
