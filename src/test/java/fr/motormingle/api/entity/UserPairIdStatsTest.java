@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-class UserPairStatsTest {
+class UserPairIdStatsTest {
 
     private UserPairStats userPairStats1;
     private UserPairStats userPairStats2;

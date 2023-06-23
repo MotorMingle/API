@@ -12,19 +12,19 @@ class UserPairTest {
 
     private UUID userId1;
     private UUID userId2;
-    private UserPair userPair1;
-    private UserPair userPair2;
+    private UserPairId userPair1;
+    private UserPairId userPair2;
 
     @BeforeEach
     void setUp() {
         userId1 = UUID.randomUUID();
         userId2 = UUID.randomUUID();
 
-        userPair1 = new UserPair();
+        userPair1 = new UserPairId();
         userPair1.setUserId1(userId1);
         userPair1.setUserId2(userId2);
 
-        userPair2 = new UserPair();
+        userPair2 = new UserPairId();
         userPair2.setUserId1(userId2);
         userPair2.setUserId2(userId1);
     }
@@ -47,6 +47,6 @@ class UserPairTest {
     @Test
     void testHashCode() {
         assertEquals(userPair1.hashCode(), userPair1.hashCode());
-        assertNotEquals(userPair1.hashCode(), new UserPair().hashCode());
+        assertNotEquals(userPair1.hashCode(), new UserPairId().hashCode());
     }
 }

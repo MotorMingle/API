@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(ManufacturerController.class)
 class ManufacturerControllerTest {
 
-    private final String BASE_URL = "/api/manufacturer";
+    private final String BASE_URL = "/api/v1/manufacturer";
 
     @Autowired
     private MockMvc mockMvc;

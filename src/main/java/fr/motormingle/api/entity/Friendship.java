@@ -1,7 +1,8 @@
 package fr.motormingle.api.entity;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,21 +10,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "friendship")
 @Entity
-public class Friendship {
-    @EmbeddedId
-    private UserPair id;
-
-    @MapsId("userId1")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id_1", nullable = false)
-    @NotNull
-    private User userId1;
-
-    @MapsId("userId2")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id_2", nullable = false)
-    @NotNull
-    private User userId2;
+public class Friendship extends UserPair {
 
     /**
      * Contains :

@@ -1,0 +1,20 @@
+@startuml
+
+autonumber
+
+actor "User" #red
+entity "Mobile application" #blue
+entity "API (OIDC client)" #green
+entity "Identity provider" #yellow
+
+"User" -> "Mobile application": Session expired
+"Mobile application" -> "API (OIDC client)": Request reauthentication
+"API (OIDC client)" -> "Identity provider": Authorization request
+"Identity provider" --> "User": Authorization prompt
+"User" -> "Identity provider": Provide credentials
+"Identity provider" --> "API (OIDC client)": ID token
+"API (OIDC client)" -> "API (OIDC client)": Validate ID token
+"API (OIDC client)" -> "API (OIDC client)": Create new session
+"API (OIDC client)" --> "Mobile application": New session token
+
+@enduml
