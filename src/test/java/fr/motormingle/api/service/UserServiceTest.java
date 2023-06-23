@@ -1,5 +1,6 @@
 package fr.motormingle.api.service;
 
+import fr.motormingle.api.entity.Mingler;
 import fr.motormingle.api.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,8 +44,18 @@ class UserServiceTest {
     }
 
     @Test
-    void testRegisterUser() {
+    void testRegisterNewUser() {
         when(userRepository.findByEmailIgnoreCase(anyString())).thenReturn(Optional.empty());
+
+        userService.registerUser(oidcUser);
+        assertNotNull(userRepository.findByEmailIgnoreCase(oidcUser.getEmail()));
+    }
+
+    @Test
+    void testRegisterUser() {
+        var mingler = new Mingler();
+        mingler.setEmail(oidcUser.getEmail());
+        when(userRepository.findByEmailIgnoreCase(anyString())).thenReturn(Optional.of(mingler));
 
         userService.registerUser(oidcUser);
         assertNotNull(userRepository.findByEmailIgnoreCase(oidcUser.getEmail()));

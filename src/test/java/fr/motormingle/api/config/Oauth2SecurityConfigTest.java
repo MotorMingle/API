@@ -18,14 +18,14 @@ class Oauth2SecurityConfigTest {
     private MockMvc mockMvc;
 
     @Test
-    void whenUnauthenticatedUser_thenRedirectToLogin() throws Exception {
+    void whenUnauthenticatedUserThenRedirectToLogin() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().is3xxRedirection());
     }
 
     @Test
     @WithMockUser
-    void whenAuthenticatedUser_thenOk() throws Exception {
+    void whenAuthenticatedUserThenOk() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk());
     }

@@ -35,7 +35,7 @@ public class Oauth2SecurityConfig {
         return http.build();
     }
 
-    private OAuth2UserService<OidcUserRequest, OidcUser> oidcUserService() {
+    OAuth2UserService<OidcUserRequest, OidcUser> oidcUserService() {
         final OidcUserService delegate = new OidcUserService();
         return userRequest -> {
             OidcUser oidcUser = delegate.loadUser(userRequest);
