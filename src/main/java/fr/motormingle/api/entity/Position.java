@@ -28,4 +28,8 @@ public class Position {
     @NotNull
     private Double longitude;
 
+    @Column(name = "treatment_status", nullable = false)
+    @NotNull
+    private String treatmentStatus;
+
 }

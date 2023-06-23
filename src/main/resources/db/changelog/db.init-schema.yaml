@@ -273,6 +273,12 @@ databaseChangeLog:
               - column:
                   constraints:
                     nullable: false
+                  name: treatment_status
+                  type: VARCHAR(15)
+                  defaultValue: 'NOT_TREATED'
+              - column:
+                  constraints:
+                    nullable: false
                     primaryKey: true
                     primaryKeyName: pk_position
                   name: user_id
