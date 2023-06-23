@@ -4,6 +4,8 @@ import fr.motormingle.api.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserRequest;
 import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -11,6 +13,8 @@ import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.*;
 
+@Configuration
+@EnableWebSecurity
 class OAuth2UserServiceTest {
 
     @Test
