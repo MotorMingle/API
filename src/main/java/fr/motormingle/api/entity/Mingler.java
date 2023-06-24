@@ -13,7 +13,6 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -21,9 +20,9 @@ import java.util.UUID;
 @Table(name = "mingler")
 public class Mingler implements Serializable {
     @Id
-    @Column(name = "id", nullable = false, length = 50)
     @NotNull
-    private UUID id;
+    @Column(name = "id", length = 20, nullable = false, unique = true)
+    private String id;
 
     @Column(name = "email", length = 50, unique = true)
     @NotNull
