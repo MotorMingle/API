@@ -3,7 +3,6 @@ package fr.motormingle.api.entity;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,14 +12,13 @@ class PositionTest {
     void testGetterAndSetter() {
         Position position = new Position();
 
-        UUID uuid = UUID.randomUUID();
         Mingler mingler = new Mingler();
-        mingler.setId(uuid);
+        mingler.setId("fakeId");
         position.setMingler(mingler);
 
         LocalDateTime now = LocalDateTime.now();
         PositionId positionId = new PositionId();
-        positionId.setUserId(uuid);
+        positionId.setUserId("fakeId");
         positionId.setDate(now);
         position.setId(positionId);
 

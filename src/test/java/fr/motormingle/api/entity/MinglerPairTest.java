@@ -3,22 +3,20 @@ package fr.motormingle.api.entity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.UUID;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class MinglerPairTest {
 
-    private UUID userId1;
-    private UUID userId2;
+    private String userId1;
+    private String userId2;
     private UserPairId userPair1;
     private UserPairId userPair2;
 
     @BeforeEach
     void setUp() {
-        userId1 = UUID.randomUUID();
-        userId2 = UUID.randomUUID();
+        userId1 = "userId1";
+        userId2 = "userId2";
 
         userPair1 = new UserPairId();
         userPair1.setUserId1(userId1);

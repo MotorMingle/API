@@ -19,6 +19,10 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "mingler")
 public class Mingler implements Serializable {
+
+    /**
+     * Unique identifier for the user provided by firebase auth
+     */
     @Id
     @NotNull
     @Column(name = "id", length = 20, nullable = false, unique = true)

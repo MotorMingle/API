@@ -12,7 +12,6 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -24,7 +23,7 @@ public class PositionId implements Serializable {
     @Column(name = "user_id", nullable = false, length = 50)
     @NotNull
     @Size(min = 1, max = 50)
-    private UUID userId;
+    private String userId;
 
     @Column(name = "date", nullable = false)
     @NotNull

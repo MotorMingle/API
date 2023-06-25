@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -17,7 +16,7 @@ class MinglerTest {
     @BeforeEach
     void setUp() {
         mingler1 = new Mingler();
-        mingler1.setId(UUID.randomUUID());
+        mingler1.setId("fakeId1");
         mingler1.setEmail("email1@example.com");
         mingler1.setTag("Tag1");
         mingler1.setFirstName("John");
@@ -27,7 +26,7 @@ class MinglerTest {
         mingler1.setMaximalAge(30);
 
         mingler2 = new Mingler();
-        mingler2.setId(UUID.randomUUID());
+        mingler2.setId("fakeId2");
         mingler2.setEmail("email2@example.com");
         mingler2.setTag("Tag2");
         mingler2.setFirstName("Jane");

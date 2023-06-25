@@ -11,7 +11,6 @@ import org.hibernate.Hibernate;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  * Ownership composite identifier class
@@ -26,7 +25,7 @@ public class OwnershipId implements Serializable {
     @Column(name = "user_id", nullable = false, length = 50)
     @NotNull
     @Size(min = 1, max = 50)
-    private UUID userId;
+    private String userId;
 
     @Column(name = "vehicle_id", nullable = false)
     @NotNull
