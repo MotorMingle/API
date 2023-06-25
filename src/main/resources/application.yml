@@ -10,7 +10,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://accounts.google.com/motor-mingle-api
+          issuer-uri: https://securetoken.google.com/motor-mingle-auth
+          audiences: motor-mingle-auth
 ---
 spring:
   config:

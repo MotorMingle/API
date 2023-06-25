@@ -22,6 +22,7 @@ public class FirebaseAuthConfig {
                 .anyRequest()
                 .authenticated());
         http.formLogin(AbstractHttpConfigurer::disable);
+
         return http.build();
     }
 
@@ -30,7 +31,6 @@ public class FirebaseAuthConfig {
         FirebaseOptions options = FirebaseOptions.builder()
                 .setCredentials(GoogleCredentials.getApplicationDefault())
                 .build();
-
         FirebaseApp.initializeApp(options);
     }
 }
