@@ -3,6 +3,11 @@ server:
     context-path: /motor-mingle
 
 spring:
+  data:
+    jdbc:
+      repositories:
+        enabled: false
+
   security:
     oauth2:
       resourceserver:
