@@ -33,7 +33,7 @@ public class Manufacturer {
     /**
      * Origin country of the manufacturer.
      */
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "country_id", nullable = false)
     @NotNull
     private Country country;

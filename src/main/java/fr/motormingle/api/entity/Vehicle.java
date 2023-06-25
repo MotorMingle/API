@@ -49,7 +49,7 @@ public abstract class Vehicle {
     /**
      * Manufacturer of the vehicle
      */
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "manufacturer_id", nullable = false)
     private Manufacturer manufacturer;
 

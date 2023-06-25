@@ -20,7 +20,7 @@ public class Motorbike extends Vehicle {
     /**
      * Motorbike type.
      */
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "motorbike_type_id", nullable = false)
     @NotNull
     private MotorbikeType motorbikeType;

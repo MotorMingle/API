@@ -1,7 +1,13 @@
 server:
   servlet:
     context-path: /motor-mingle
+
 spring:
+  data:
+    jdbc:
+      repositories:
+        enabled: false
+
   session:
     jdbc:
       initialize-schema: always
@@ -48,8 +54,14 @@ spring:
       changeLogFile: src/main/resources/db/changelog/db.changelog-master.yaml
 
     change-log: db/changelog/db.changelog-master.yaml
+  mvc:
+    log-request-details: true
 
 logging:
   level:
     web: DEBUG
-    org.springframework.web.client.RestTemplate: DEBUG
+    org:
+      springframework:
+        web: DEBUG
+        client:
+          RestTemplate: DEBUG
