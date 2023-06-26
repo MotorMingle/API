@@ -22,7 +22,7 @@ public class Photo {
     private Blob content;
 
     @MapsId("ownershipId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "ownership_user_id", referencedColumnName = "user_id")
     @JoinColumn(name = "ownership_vehicle_id", referencedColumnName = "vehicle_id")
     private Ownership ownership;

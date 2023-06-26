@@ -104,14 +104,14 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_encounter
                   name: user_id_1
-                  type: UUID
+                  type: VARCHAR(20)
               - column:
                   constraints:
                     nullable: false
                     primaryKey: true
                     primaryKeyName: pk_encounter
                   name: user_id_2
-                  type: UUID
+                  type: VARCHAR(20)
             tableName: encounter
   - changeSet:
       id: 1686241777387-7
@@ -197,7 +197,7 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_ownership
                   name: user_id
-                  type: UUID
+                  type: VARCHAR(20)
               - column:
                   constraints:
                     nullable: false
@@ -234,7 +234,7 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_photo
                   name: user_id
-                  type: UUID
+                  type: VARCHAR(20)
               - column:
                   constraints:
                     nullable: false
@@ -246,7 +246,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   name: ownership_user_id
-                  type: UUID
+                  type: VARCHAR(20)
               - column:
                   constraints:
                     nullable: false
@@ -276,7 +276,7 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_position
                   name: user_id
-                  type: UUID
+                  type: VARCHAR(20)
               - column:
                   constraints:
                     nullable: false
@@ -298,13 +298,16 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_user
                   name: id
-                  type: UUID
+                  type: VARCHAR(20)
               - column:
                   constraints:
+                    unique: true
                     nullable: false
                   name: email
                   type: VARCHAR(50)
               - column:
+                  constraints:
+                    unique: true
                   name: tag
                   type: VARCHAR(50)
               - column:
@@ -384,14 +387,14 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: pk_friendship
                   name: user_id_1
-                  type: UUID
+                  type: VARCHAR(20)
               - column:
                   constraints:
                     nullable: false
                     primaryKey: true
                     primaryKeyName: pk_friendship
                   name: user_id_2
-                  type: UUID
+                  type: VARCHAR(20)
             tableName: friendship
   - changeSet:
       id: 1686241777387-16

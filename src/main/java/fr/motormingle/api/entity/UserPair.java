@@ -14,15 +14,15 @@ public abstract class UserPair {
     private UserPairId id;
 
     @MapsId("userId1")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "user_id_1", nullable = false)
     @NotNull
-    private Mingler minglerId1;
+    private Mingler mingler1;
 
     @MapsId("userId2")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "user_id_2", nullable = false)
     @NotNull
-    private Mingler minglerId2;
+    private Mingler mingler2;
 
 }

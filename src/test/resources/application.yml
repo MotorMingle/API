@@ -3,21 +3,17 @@ server:
     context-path: /motor-mingle
 
 spring:
+  data:
+    jdbc:
+      repositories:
+        enabled: false
+
   security:
     oauth2:
-      client:
-        registration:
-          google:
-            client-id: ${GOOGLE_CLIENT_ID}
-            client-secret: ${GOOGLE_CLIENT_SECRET}
-            redirect-uri: "http://localhost:8080/motor-mingle/login/oauth2/code/google"
-            scope:
-              - email
-              - profile
-              - openid
       resourceserver:
         jwt:
-          issuer-uri: https://accounts.google.com
+          issuer-uri: https://securetoken.google.com/motor-mingle-auth
+          audiences: motor-mingle-auth
 
   datasource:
     driver-class-name: org.postgresql.Driver

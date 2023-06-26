@@ -3,7 +3,6 @@ package fr.motormingle.api.entity;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -12,26 +11,26 @@ class PositionIdTest {
 
     @Test
     void testEqualsAndHashCode() {
-        UUID uuid1 = UUID.randomUUID();
-        UUID uuid2 = UUID.randomUUID();
+        String userId1 = "userId1";
+        String userId2 = "userId2";
 
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime later = now.plusHours(1);
 
         PositionId positionId1 = new PositionId();
-        positionId1.setUserId(uuid1);
+        positionId1.setUserId(userId1);
         positionId1.setDate(now);
 
         PositionId positionId2 = new PositionId();
-        positionId2.setUserId(uuid1);
+        positionId2.setUserId(userId1);
         positionId2.setDate(now);
 
         PositionId positionId3 = new PositionId();
-        positionId3.setUserId(uuid2);
+        positionId3.setUserId(userId2);
         positionId3.setDate(now);
 
         PositionId positionId4 = new PositionId();
-        positionId4.setUserId(uuid1);
+        positionId4.setUserId(userId1);
         positionId4.setDate(later);
 
         PositionId positionId5 = new PositionId();
@@ -39,7 +38,7 @@ class PositionIdTest {
         positionId5.setDate(now);
 
         PositionId positionId6 = new PositionId();
-        positionId6.setUserId(uuid1);
+        positionId6.setUserId(userId1);
         positionId6.setDate(null);
 
         // Testing equals

@@ -13,17 +13,20 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "mingler")
 public class Mingler implements Serializable {
+
+    /**
+     * Unique identifier for the user provided by firebase auth
+     */
     @Id
-    @Column(name = "id", nullable = false, length = 50)
     @NotNull
-    private UUID id;
+    @Column(name = "id", length = 20, nullable = false, unique = true)
+    private String id;
 
     @Column(name = "email", length = 50, unique = true)
     @NotNull

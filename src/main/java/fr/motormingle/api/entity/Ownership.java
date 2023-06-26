@@ -22,7 +22,7 @@ public class Ownership {
      * The user owning the vehicle.
      */
     @MapsId("userId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     @NotNull
     private Mingler mingler;
@@ -31,7 +31,7 @@ public class Ownership {
      * The vehicle owned by the user.
      */
     @MapsId("vehicleId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "vehicle_id", nullable = false)
     @NotNull
     private Vehicle vehicle;

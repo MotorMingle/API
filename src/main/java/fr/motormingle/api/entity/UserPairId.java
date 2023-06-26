@@ -10,7 +10,6 @@ import org.hibernate.Hibernate;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -21,12 +20,12 @@ public class UserPairId implements Serializable {
     @Column(name = "user_id_1", nullable = false, length = 50)
     @NotNull
     @Size(min = 1, max = 50)
-    private UUID userId1;
+    private String userId1;
 
     @Column(name = "user_id_2", nullable = false, length = 50)
     @NotNull
     @Size(min = 1, max = 50)
-    private UUID userId2;
+    private String userId2;
 
     /**
      * @param o Object to compare

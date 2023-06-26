@@ -3,26 +3,24 @@ package fr.motormingle.api.entity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.UUID;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class OwnershipIdTest {
 
-    private UUID userId1;
+    private String userId1;
     private OwnershipId ownershipId1;
     private OwnershipId ownershipId2;
 
     @BeforeEach
     void setUp() {
-        userId1 = UUID.randomUUID();
+        userId1 = "fakeId1";
         ownershipId1 = new OwnershipId();
         ownershipId1.setUserId(userId1);
         ownershipId1.setVehicleId(1L);
 
         ownershipId2 = new OwnershipId();
-        ownershipId2.setUserId(UUID.randomUUID());
+        ownershipId2.setUserId("fakeId2");
         ownershipId2.setVehicleId(2L);
     }
 

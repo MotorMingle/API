@@ -1,26 +1,23 @@
 server:
   servlet:
     context-path: /motor-mingle
+
 spring:
+  data:
+    jdbc:
+      repositories:
+        enabled: false
+
   session:
     jdbc:
       initialize-schema: always
 
   security:
     oauth2:
-      client:
-        registration:
-          google:
-            client-id: ${GOOGLE_CLIENT_ID}
-            client-secret: ${GOOGLE_CLIENT_SECRET}
-            redirect-uri: "http://localhost:8080/motor-mingle/login/oauth2/code/google"
-            scope:
-              - email
-              - profile
-              - openid
       resourceserver:
         jwt:
-          issuer-uri: https://accounts.google.com
+          issuer-uri: https://securetoken.google.com/motor-mingle-auth
+          audiences: motor-mingle-auth
 ---
 spring:
   config:
@@ -57,8 +54,14 @@ spring:
       changeLogFile: src/main/resources/db/changelog/db.changelog-master.yaml
 
     change-log: db/changelog/db.changelog-master.yaml
+  mvc:
+    log-request-details: true
 
 logging:
   level:
     web: DEBUG
-    org.springframework.web.client.RestTemplate: DEBUG
+    org:
+      springframework:
+        web: DEBUG
+        client:
+          RestTemplate: DEBUG

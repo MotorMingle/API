@@ -3,8 +3,6 @@ package fr.motormingle.api.entity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.UUID;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -16,13 +14,12 @@ class PhotoIdTest {
 
     @BeforeEach
     void setUp() {
-        UUID userId = UUID.randomUUID();
         ownershipId1 = new OwnershipId();
-        ownershipId1.setUserId(userId);
+        ownershipId1.setUserId("fakeId1");
         ownershipId1.setVehicleId(1L);
 
         OwnershipId ownershipId2 = new OwnershipId();
-        ownershipId2.setUserId(UUID.randomUUID());
+        ownershipId2.setUserId("fakeId2");
         ownershipId2.setVehicleId(2L);
 
         photoId1 = new PhotoId();

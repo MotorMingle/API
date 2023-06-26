@@ -13,7 +13,6 @@ import org.mockito.MockitoAnnotations;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -34,8 +33,8 @@ class EncounterServiceTest {
         MockitoAnnotations.openMocks(this);
 
         UserPairId userPair1 = new UserPairId();
-        userPair1.setUserId1(UUID.randomUUID());
-        userPair1.setUserId2(UUID.randomUUID());
+        userPair1.setUserId1("userId1");
+        userPair1.setUserId2("userId2");
         UserPairStats userPairStats1 = new UserPairStats();
 
         encounter = new Encounter();

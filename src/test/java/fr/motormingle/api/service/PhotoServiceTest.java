@@ -14,7 +14,6 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -35,7 +34,7 @@ class PhotoServiceTest {
         MockitoAnnotations.openMocks(this);
 
         Mingler mingler = new Mingler();
-        mingler.setId(UUID.randomUUID());
+        mingler.setId("fakeId");
         mingler.setEmail("test@test.com");
 
         Ownership ownership = new Ownership();
