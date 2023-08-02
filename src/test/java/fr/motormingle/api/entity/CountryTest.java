@@ -2,23 +2,44 @@ package fr.motormingle.api.entity;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CountryTest {
 
-    private Country japan;
+    private Country country;
 
     @BeforeEach
-    void setUp() {
-        japan = new Country("JPN", "Japan");
+    public void setUp() {
+        country = new Country();
     }
-    
+
     @Test
-    void testSetterAndGetter() {
-        japan.setId("ITA");
-        assertEquals("ITA", japan.getId());
-        japan.setName("Italy");
-        assertEquals("Italy", japan.getName());
+    public void testId() {
+        String id = "USA";
+        country.setId(id);
+        assertEquals(id, country.getId());
+    }
+
+    @Test
+    public void testName() {
+        String name = "United States";
+        country.setName(name);
+        assertEquals(name, country.getName());
+    }
+
+    @Test
+    public void testNoArgsConstructor() {
+        Country country = new Country();
+        assertNotNull(country);
+    }
+
+    @Test
+    public void testRequiredArgsConstructor() {
+        String id = "USA";
+        String name = "United States";
+        Country country = new Country(id, name);
+        assertNotNull(country);
+        assertEquals(id, country.getId());
+        assertEquals(name, country.getName());
     }
 }
