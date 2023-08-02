@@ -55,6 +55,10 @@ public class CountryTest {
 
     @Test
     public void testRequiredArgsConstructorNull() {
+        String id = "USA";
+        String name = "United States";
         assertThrows(NullPointerException.class, () -> new Country(null, null));
+        assertThrows(NullPointerException.class, () -> new Country(id, null));
+        assertThrows(NullPointerException.class, () -> new Country(null, name));
     }
 }
