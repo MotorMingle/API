@@ -1,5 +1,6 @@
 package fr.motormingle.api.service;
 
+import fr.motormingle.api.dto.manufacturer.get.ManufacturerItemGet;
 import fr.motormingle.api.entity.Manufacturer;
 import fr.motormingle.api.repository.ManufacturerRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,5 +51,14 @@ class ManufacturerServiceTest {
 
         Manufacturer result = manufacturerService.findById(manufacturer.getId());
         assertEquals(manufacturer, result);
+    }
+
+    @Test
+    void testGetManufacturerItemList() {
+        when(manufacturerRepository.findAll()).thenReturn(Collections.singletonList(manufacturer));
+
+        List<ManufacturerItemGet> result = manufacturerService.getManufacturerItemList();
+        assertEquals(1, result.size());
+        assertEquals(manufacturer.toManufacturerItemGet(), result.get(0));
     }
 }

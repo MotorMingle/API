@@ -1,5 +1,6 @@
 package fr.motormingle.api.service;
 
+import fr.motormingle.api.dto.mingler.get.MinglerTagGet;
 import fr.motormingle.api.entity.Mingler;
 import fr.motormingle.api.repository.MinglerRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -48,5 +49,13 @@ class MinglerServiceTest {
 
         Mingler result = minglerService.findById(mingler.getId());
         assertEquals(mingler, result);
+    }
+
+    @Test
+    void findTagById() {
+        when(minglerRepository.findById(any(String.class))).thenReturn(Optional.of(mingler));
+
+        MinglerTagGet result = minglerService.findTagById(mingler.getId());
+        assertEquals(mingler.toMinglerTagGet(), result);
     }
 }
