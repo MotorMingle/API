@@ -1,10 +1,12 @@
 package fr.motormingle.api.controller;
 
 import fr.motormingle.api.controller.stereotype.GetController;
+import fr.motormingle.api.dto.manufacturer.get.ManufacturerItemGet;
 import fr.motormingle.api.entity.Manufacturer;
 import fr.motormingle.api.service.ManufacturerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,5 +29,10 @@ public class ManufacturerController implements GetController<Manufacturer, Long>
     public ResponseEntity<Manufacturer> getById(Long id) {
         var manufacturer = manufacturerService.findById(id);
         return ResponseEntity.ok(manufacturer);
+    }
+
+    @GetMapping("/items")
+    public ResponseEntity<List<ManufacturerItemGet>> getManufacturerItemList() {
+        return ResponseEntity.ok(manufacturerService.getManufacturerItemList());
     }
 }

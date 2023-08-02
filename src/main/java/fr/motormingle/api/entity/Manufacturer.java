@@ -1,5 +1,6 @@
 package fr.motormingle.api.entity;
 
+import fr.motormingle.api.dto.manufacturer.get.ManufacturerItemGet;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -37,5 +38,9 @@ public class Manufacturer {
     @JoinColumn(name = "country_id", nullable = false)
     @NotNull
     private Country country;
+
+    public ManufacturerItemGet toManufacturerItemGet() {
+        return new ManufacturerItemGet(this.id, this.name);
+    }
 
 }

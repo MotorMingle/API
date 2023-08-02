@@ -1,5 +1,6 @@
 package fr.motormingle.api.entity;
 
+import fr.motormingle.api.dto.mingler.get.MinglerTagGet;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -69,4 +70,7 @@ public class Mingler implements Serializable {
     @Size(max = 150)
     private Integer maximalAge;
 
+    public MinglerTagGet toMinglerTagGet() {
+        return new MinglerTagGet(tag);
+    }
 }
