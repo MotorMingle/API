@@ -4,11 +4,12 @@ import fr.motormingle.api.dto.manufacturer.get.ManufacturerItemGet;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "manufacturer")
 public class Manufacturer {
@@ -21,6 +22,7 @@ public class Manufacturer {
     @SequenceGenerator(name = "manufacturer_id_seq", sequenceName = "manufacturer_id_seq", allocationSize = 1)
     @Column(name = "id", nullable = false)
     @NotNull
+    @NonNull
     private Long id;
 
     /**
@@ -28,6 +30,7 @@ public class Manufacturer {
      */
     @Column(name = "name", nullable = false, length = 50)
     @NotNull
+    @NonNull
     @Size(min = 1, max = 50)
     private String name;
 
@@ -37,6 +40,7 @@ public class Manufacturer {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "country_id", nullable = false)
     @NotNull
+    @NonNull
     private Country country;
 
     public ManufacturerItemGet toManufacturerItemGet() {

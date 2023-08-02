@@ -1,10 +1,14 @@
 package fr.motormingle.api.dto.mingler.get;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
+@EqualsAndHashCode
 public class MinglerTagGet {
     @SerializedName("tag")
-    private final String tag;
+    @NonNull
+    private String tag;
 }

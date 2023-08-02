@@ -1,5 +1,6 @@
 package fr.motormingle.api.entity;
 
+import fr.motormingle.api.dto.mingler.get.MinglerTagGet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -66,5 +67,10 @@ class MinglerTest {
         assertEquals(LocalDate.now().minusYears(20), mingler1.getBirthDate());
         assertEquals(22, mingler1.getMinimalAge());
         assertEquals(33, mingler1.getMaximalAge());
+    }
+
+    @Test
+    void testToMinglerTagGet() {
+        assertEquals(new MinglerTagGet("Tag1"), mingler1.toMinglerTagGet());
     }
 }

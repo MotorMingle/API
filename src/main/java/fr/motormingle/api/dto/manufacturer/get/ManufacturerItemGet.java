@@ -1,13 +1,18 @@
 package fr.motormingle.api.dto.manufacturer.get;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
+@EqualsAndHashCode
 public class ManufacturerItemGet {
     @SerializedName("id")
-    private final Long id;
+    @NonNull
+    private Long id;
 
     @SerializedName("name")
-    private final String name;
+    @NonNull
+    private String name;
 }
