@@ -21,10 +21,20 @@ public class CountryTest {
     }
 
     @Test
+    public void testIdNull() {
+        assertThrows(NullPointerException.class, () -> country.setId(null));
+    }
+
+    @Test
     public void testName() {
         String name = "United States";
         country.setName(name);
         assertEquals(name, country.getName());
+    }
+
+    @Test
+    public void testNameNull() {
+        assertThrows(NullPointerException.class, () -> country.setName(null));
     }
 
     @Test
@@ -41,5 +51,10 @@ public class CountryTest {
         assertNotNull(country);
         assertEquals(id, country.getId());
         assertEquals(name, country.getName());
+    }
+
+    @Test
+    public void testRequiredArgsConstructorNull() {
+        assertThrows(NullPointerException.class, () -> new Country(null, null));
     }
 }
