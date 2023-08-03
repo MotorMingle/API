@@ -5,11 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "country")
 public class Country {
@@ -20,6 +21,7 @@ public class Country {
     @Id
     @Column(name = "id", nullable = false, length = 3)
     @NotNull
+    @NonNull
     private String id;
 
     /**
@@ -27,6 +29,7 @@ public class Country {
      */
     @Column(name = "name", nullable = false, length = 50)
     @NotNull
+    @NonNull
     private String name;
 
 }

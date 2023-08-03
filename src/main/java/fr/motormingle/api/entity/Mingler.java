@@ -1,5 +1,6 @@
 package fr.motormingle.api.entity;
 
+import fr.motormingle.api.dto.mingler.get.MinglerTagGet;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,14 +9,15 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
 @Setter
+@RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "mingler")
 public class Mingler implements Serializable {
@@ -25,11 +27,13 @@ public class Mingler implements Serializable {
      */
     @Id
     @NotNull
+    @NonNull
     @Column(name = "id", length = 20, nullable = false, unique = true)
     private String id;
 
     @Column(name = "email", length = 50, unique = true)
     @NotNull
+    @NonNull
     @Email
     private String email;
 
@@ -38,16 +42,19 @@ public class Mingler implements Serializable {
      */
     @Column(name = "tag", length = 50, unique = true)
     @NotNull
+    @NonNull
     @Size(min = 1, max = 50)
     private String tag;
 
     @Column(name = "first_name", length = 50)
     @NotNull
+    @NonNull
     @Size(min = 1, max = 50)
     private String firstName;
 
     @Column(name = "last_name", length = 50)
     @NotNull
+    @NonNull
     @Size(min = 1, max = 50)
     private String lastName;
 
@@ -69,4 +76,7 @@ public class Mingler implements Serializable {
     @Size(max = 150)
     private Integer maximalAge;
 
+    public MinglerTagGet toMinglerTagGet() {
+        return new MinglerTagGet(tag);
+    }
 }

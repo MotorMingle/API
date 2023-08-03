@@ -1,5 +1,6 @@
 package fr.motormingle.api.service;
 
+import fr.motormingle.api.dto.manufacturer.get.ManufacturerItemGet;
 import fr.motormingle.api.entity.Manufacturer;
 import fr.motormingle.api.exception.NotFoundException;
 import fr.motormingle.api.repository.ManufacturerRepository;
@@ -24,5 +25,9 @@ public class ManufacturerService implements FindService<Manufacturer, Long> {
     public Manufacturer findById(Long id) throws NotFoundException {
         return manufacturerRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Manufacturer with id " + id + " was not found"));
+    }
+
+    public List<ManufacturerItemGet> getManufacturerItemList() {
+        return manufacturerRepository.findAll().stream().map(Manufacturer::toManufacturerItemGet).toList();
     }
 }

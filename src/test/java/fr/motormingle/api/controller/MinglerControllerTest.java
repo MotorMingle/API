@@ -1,9 +1,9 @@
 package fr.motormingle.api.controller;
 
-import fr.motormingle.api.dto.manufacturer.get.ManufacturerItemGet;
-import fr.motormingle.api.entity.Manufacturer;
+import fr.motormingle.api.dto.mingler.get.MinglerTagGet;
+import fr.motormingle.api.entity.Mingler;
 import fr.motormingle.api.exception.NotFoundException;
-import fr.motormingle.api.service.ManufacturerService;
+import fr.motormingle.api.service.MinglerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -20,21 +20,21 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(ManufacturerController.class)
-class ManufacturerControllerTest {
+@WebMvcTest(MinglerController.class)
+class MinglerControllerTest {
 
-    private final String BASE_URL = "/api/v1/manufacturer";
+    private final String BASE_URL = "/api/v1/mingler";
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private ManufacturerService service;
+    private MinglerService service;
 
     @Test
     void getAll() throws Exception {
-        List<Manufacturer> manufacturers = List.of(new Manufacturer(), new Manufacturer());
-        given(service.findAll()).willReturn(manufacturers);
+        List<Mingler> minglers = List.of(new Mingler("5d4f9dc62d66", "lebarbanchon.valentin@gmail.com", "enixo", "Valentin", "Lebarbanchon"), new Mingler("dedb0e441ff7", "brionne.victor@gmail.com", "vixi9", "Victor", "Brionne"));
+        given(service.findAll()).willReturn(minglers);
 
         mockMvc.perform(get(BASE_URL + "/all")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -44,10 +44,10 @@ class ManufacturerControllerTest {
 
     @Test
     void getById() throws Exception {
-        Manufacturer manufacturer = new Manufacturer();
-        given(service.findById(1L)).willReturn(manufacturer);
+        Mingler mingler = new Mingler("5d4f9dc62d66", "lebarbanchon.valentin@gmail.com", "enixo", "Valentin", "Lebarbanchon");
+        given(service.findById("5d4f9dc62d66")).willReturn(mingler);
 
-        mockMvc.perform(get(BASE_URL + "/find/1")
+        mockMvc.perform(get(BASE_URL + "/find/5d4f9dc62d66")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", notNullValue()));
@@ -55,28 +55,23 @@ class ManufacturerControllerTest {
 
     @Test
     void getByIdNotFound() throws Exception {
-        given(service.findById(1L)).willThrow(new NotFoundException("Manufacturer with id 1 was not found"));
+        given(service.findById("v4ch3")).willThrow(new NotFoundException("Mingler with id v4ch3 was not found"));
 
-        mockMvc.perform(get(BASE_URL + "/find/1")
+        mockMvc.perform(get(BASE_URL + "/find/v4ch3")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
 
     @Test
-    void getManufacturerItemList() throws Exception {
-        List<ManufacturerItemGet> manufacturerItemGets = List.of(new ManufacturerItemGet(1L, "Ducati"), new ManufacturerItemGet(2L, "Suzuki"));
-        given(service.getManufacturerItemList()).willReturn(manufacturerItemGets);
+    void getTagById() throws Exception {
+        MinglerTagGet minglerTagGet = new MinglerTagGet("enixo");
+        given(service.findTagById("5d4f9dc62d66")).willReturn(minglerTagGet);
 
-        mockMvc.perform(get(BASE_URL + "/items")
+        mockMvc.perform(get(BASE_URL + "/5d4f9dc62d66/tag")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].*", hasSize(2)))
-                .andExpect(jsonPath("$[1].*", hasSize(2)))
-                .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].id").value(1L))
-                .andExpect(jsonPath("$[0].name").value("Ducati"))
-                .andExpect(jsonPath("$[1].id").value(2L))
-                .andExpect(jsonPath("$[1].name").value("Suzuki"));
+                .andExpect(jsonPath("$", notNullValue()))
+                .andExpect(jsonPath("$.tag").value("enixo"));
 
     }
 }
