@@ -70,6 +70,40 @@ class MinglerTest {
     }
 
     @Test
+    void testBirthDateNull() {
+        mingler1.setBirthDate(null);
+        assertNull(mingler1.getBirthDate());
+    }
+
+    @Test
+    void testMinimalAgeNull() {
+        mingler1.setMinimalAge(null);
+        assertNull(mingler1.getMinimalAge());
+    }
+
+    @Test
+    void testMaximalAgeNull() {
+        mingler1.setMaximalAge(null);
+        assertNull(mingler1.getMaximalAge());
+    }
+
+    @Test
+    void testRequiredArgsConstructor() {
+        String id = "fakeId";
+        String email = "email@example.com";
+        String tag = "Tag";
+        String firstName = "John";
+        String lastName = "Doe";
+        Mingler mingler = new Mingler(id, email, tag, firstName, lastName);
+        assertNotNull(mingler);
+        assertEquals(id, mingler.getId());
+        assertEquals(email, mingler.getEmail());
+        assertEquals(tag, mingler.getTag());
+        assertEquals(firstName, mingler.getFirstName());
+        assertEquals(lastName, mingler.getLastName());
+    }
+
+    @Test
     void testToMinglerTagGet() {
         assertEquals(new MinglerTagGet("Tag1"), mingler1.toMinglerTagGet());
     }
