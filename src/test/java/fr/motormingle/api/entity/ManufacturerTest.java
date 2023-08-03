@@ -3,6 +3,11 @@ package fr.motormingle.api.entity;
 import fr.motormingle.api.dto.manufacturer.get.ManufacturerItemGet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -58,17 +63,25 @@ class ManufacturerTest {
         assertEquals(new ManufacturerItemGet(1L, "Suzuki"), suzuki.toManufacturerItemGet());
     }
 
-    @Test
-    void testRequiredArgsConstructorNull() {
+    @ParameterizedTest
+    @MethodSource("requiredArgsConstructorNullArguments")
+    void testRequiredArgsConstructorNull(Long id, String name, Country country) {
+        assertThrows(NullPointerException.class, () -> new Manufacturer(id, name, country));
+    }
+
+    static Stream<Arguments> requiredArgsConstructorNullArguments() {
         Long id = 1L;
         String name = "Suzuki";
         Country country = new Country("JPN", "Japan");
-        assertThrows(NullPointerException.class, () -> new Manufacturer(null, null, null));
-        assertThrows(NullPointerException.class, () -> new Manufacturer(id, null, null));
-        assertThrows(NullPointerException.class, () -> new Manufacturer(null, name, null));
-        assertThrows(NullPointerException.class, () -> new Manufacturer(null, null, country));
-        assertThrows(NullPointerException.class, () -> new Manufacturer(id, name, null));
-        assertThrows(NullPointerException.class, () -> new Manufacturer(id, null, country));
-        assertThrows(NullPointerException.class, () -> new Manufacturer(null, name, country));
+
+        return Stream.of(
+                Arguments.of(null, null, null),
+                Arguments.of(id, null, null),
+                Arguments.of(null, name, null),
+                Arguments.of(null, null, country),
+                Arguments.of(null, name, country),
+                Arguments.of(id, null, country),
+                Arguments.of(id, name, null)
+        );
     }
 }

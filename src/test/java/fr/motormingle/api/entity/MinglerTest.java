@@ -3,8 +3,12 @@ package fr.motormingle.api.entity;
 import fr.motormingle.api.dto.mingler.get.MinglerTagGet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.time.LocalDate;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -114,39 +118,51 @@ class MinglerTest {
         assertNotNull(mingler);
     }
 
-    @Test
-    void testRequiredArgsConstructorNull() {
+    @ParameterizedTest
+    @MethodSource("requiredArgsConstructorNullArguments")
+    void testRequiredArgsConstructorNull(String id, String email, String tag, String firstName, String lastName) {
+        assertThrows(NullPointerException.class, () -> new Mingler(id, email, tag, firstName, lastName));
+    }
+
+    static Stream<Arguments> requiredArgsConstructorNullArguments() {
         String id = "fakeId";
         String email = "email@example.com";
         String tag = "Tag";
         String firstName = "John";
         String lastName = "Doe";
-        assertThrows(NullPointerException.class, () -> new Mingler(null, null, null, null, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, null, null, null, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, email, null, null, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, null, tag, null, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, null, null, firstName, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, null, null, null, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, email, null, null, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, null, tag, null, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, null, null, firstName, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, null, null, null, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, email, tag, null, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, email, null, firstName, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, email, null, null, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, null, tag, firstName, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, null, tag, null, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, null, null, firstName, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, email, tag, null, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, email, null, firstName, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, email, null, null, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, null, tag, firstName, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, null, tag, null, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, null, null, firstName, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, email, tag, firstName, null));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, email, tag, null, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, email, null, firstName, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(id, null, tag, firstName, lastName));
-        assertThrows(NullPointerException.class, () -> new Mingler(null, email, tag, firstName, lastName));
+
+        return Stream.of(
+                Arguments.of(null, null, null, null, null),
+                Arguments.of(id, null, null, null, null),
+                Arguments.of(null, email, null, null, null),
+                Arguments.of(null, null, tag, null, null),
+                Arguments.of(null, null, null, firstName, null),
+                Arguments.of(null, null, null, null, lastName),
+                Arguments.of(id, email, null, null, null),
+                Arguments.of(id, null, tag, null, null),
+                Arguments.of(id, null, null, firstName, null),
+                Arguments.of(id, null, null, null, lastName),
+                Arguments.of(null, email, tag, null, null),
+                Arguments.of(null, email, null, firstName, null),
+                Arguments.of(null, email, null, null, lastName),
+                Arguments.of(null, null, tag, firstName, null),
+                Arguments.of(null, null, tag, null, lastName),
+                Arguments.of(null, null, null, firstName, lastName),
+                Arguments.of(id, email, tag, null, null),
+                Arguments.of(id, email, null, firstName, null),
+                Arguments.of(id, email, null, null, lastName),
+                Arguments.of(id, null, tag, firstName, null),
+                Arguments.of(id, null, tag, null, lastName),
+                Arguments.of(id, null, null, firstName, lastName),
+                Arguments.of(null, email, tag, firstName, null),
+                Arguments.of(null, email, tag, null, lastName),
+                Arguments.of(null, email, null, firstName, lastName),
+                Arguments.of(id, null, null, firstName, lastName),
+                Arguments.of(id, email, tag, firstName, null),
+                Arguments.of(id, email, tag, null, lastName),
+                Arguments.of(id, email, null, firstName, lastName),
+                Arguments.of(id, null, tag, firstName, lastName),
+                Arguments.of(null, email, tag, firstName, lastName)
+        );
     }
 }
