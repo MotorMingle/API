@@ -32,12 +32,24 @@ class ManufacturerItemGetTest {
         assertEquals(name, manufacturerItemGet.getName());
     }
 
+
     @Test
-    void testEqualsAndHashCode() {
+    void testEqualsAndHashCodeOk() {
         ManufacturerItemGet manufacturerItemGet1 = new ManufacturerItemGet(1L, "Suzuki");
         ManufacturerItemGet manufacturerItemGet2 = new ManufacturerItemGet(1L, "Suzuki");
+        assertEquals(manufacturerItemGet1, manufacturerItemGet1);
         assertEquals(manufacturerItemGet1, manufacturerItemGet2);
         assertEquals(manufacturerItemGet1.hashCode(), manufacturerItemGet2.hashCode());
+    }
+
+    @Test
+    void testEqualsAndHashCodeNotOk() {
+        ManufacturerItemGet manufacturerItemGet1 = new ManufacturerItemGet(1L, "Suzuki");
+        ManufacturerItemGet manufacturerItemGet2 = new ManufacturerItemGet(2L, "Yamaha");
+        assertNotEquals(manufacturerItemGet1, new Object());
+        assertNotEquals(null, manufacturerItemGet1);
+        assertNotEquals(manufacturerItemGet1, manufacturerItemGet2);
+        assertNotEquals(manufacturerItemGet1.hashCode(), manufacturerItemGet2.hashCode());
     }
 
     @Test

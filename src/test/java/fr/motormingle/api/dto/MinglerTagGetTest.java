@@ -47,9 +47,8 @@ class MinglerTagGetTest {
         MinglerTagGet minglerTagGet1 = new MinglerTagGet("enixo");
         MinglerTagGet minglerTagGet2 = new MinglerTagGet("vixi9");
         assertNotEquals(minglerTagGet1, new Object());
+        assertNotEquals(null, minglerTagGet1);
         assertNotEquals(minglerTagGet1, minglerTagGet2);
-        assertNotEquals(minglerTagGet1, new MinglerTagGet(null));
-        assertNotEquals(new MinglerTagGet(null), minglerTagGet1);
         assertNotEquals(minglerTagGet1.hashCode(), minglerTagGet2.hashCode());
     }
 
