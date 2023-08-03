@@ -67,5 +67,8 @@ class ManufacturerTest {
         assertThrows(NullPointerException.class, () -> new Manufacturer(id, null, null));
         assertThrows(NullPointerException.class, () -> new Manufacturer(null, name, null));
         assertThrows(NullPointerException.class, () -> new Manufacturer(null, null, country));
+        assertThrows(NullPointerException.class, () -> new Manufacturer(id, name, null));
+        assertThrows(NullPointerException.class, () -> new Manufacturer(id, null, country));
+        assertThrows(NullPointerException.class, () -> new Manufacturer(null, name, country));
     }
 }
