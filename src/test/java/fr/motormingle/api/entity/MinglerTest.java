@@ -127,5 +127,26 @@ class MinglerTest {
         assertThrows(NullPointerException.class, () -> new Mingler(null, null, tag, null, null));
         assertThrows(NullPointerException.class, () -> new Mingler(null, null, null, firstName, null));
         assertThrows(NullPointerException.class, () -> new Mingler(null, null, null, null, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, email, null, null, null));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, null, tag, null, null));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, null, null, firstName, null));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, null, null, null, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(null, email, tag, null, null));
+        assertThrows(NullPointerException.class, () -> new Mingler(null, email, null, firstName, null));
+        assertThrows(NullPointerException.class, () -> new Mingler(null, email, null, null, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(null, null, tag, firstName, null));
+        assertThrows(NullPointerException.class, () -> new Mingler(null, null, tag, null, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(null, null, null, firstName, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, email, tag, null, null));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, email, null, firstName, null));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, email, null, null, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, null, tag, firstName, null));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, null, tag, null, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, null, null, firstName, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, email, tag, firstName, null));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, email, tag, null, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, email, null, firstName, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(id, null, tag, firstName, lastName));
+        assertThrows(NullPointerException.class, () -> new Mingler(null, email, tag, firstName, lastName));
     }
 }
