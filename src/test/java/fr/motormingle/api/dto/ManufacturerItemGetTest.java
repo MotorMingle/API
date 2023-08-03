@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ManufacturerItemGetTest {
+class ManufacturerItemGetTest {
     private ManufacturerItemGet manufacturerItemGet;
 
     @BeforeEach
@@ -15,7 +15,7 @@ public class ManufacturerItemGetTest {
     }
 
     @Test
-    public void testSetterAndGetter() {
+    void testSetterAndGetter() {
         manufacturerItemGet.setId(2L);
         assertEquals(2L, manufacturerItemGet.getId());
         manufacturerItemGet.setName("Suzuki");

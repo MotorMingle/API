@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CountryTest {
+class CountryTest {
 
     private Country country;
 
@@ -14,37 +14,37 @@ public class CountryTest {
     }
 
     @Test
-    public void testId() {
+    void testId() {
         String id = "USA";
         country.setId(id);
         assertEquals(id, country.getId());
     }
 
     @Test
-    public void testIdNull() {
+    void testIdNull() {
         assertThrows(NullPointerException.class, () -> country.setId(null));
     }
 
     @Test
-    public void testName() {
+    void testName() {
         String name = "United States";
         country.setName(name);
         assertEquals(name, country.getName());
     }
 
     @Test
-    public void testNameNull() {
+    void testNameNull() {
         assertThrows(NullPointerException.class, () -> country.setName(null));
     }
 
     @Test
-    public void testNoArgsConstructor() {
+    void testNoArgsConstructor() {
         Country country = new Country();
         assertNotNull(country);
     }
 
     @Test
-    public void testRequiredArgsConstructor() {
+    void testRequiredArgsConstructor() {
         String id = "USA";
         String name = "United States";
         Country country = new Country(id, name);
@@ -54,7 +54,7 @@ public class CountryTest {
     }
 
     @Test
-    public void testRequiredArgsConstructorNull() {
+    void testRequiredArgsConstructorNull() {
         String id = "USA";
         String name = "United States";
         assertThrows(NullPointerException.class, () -> new Country(null, null));

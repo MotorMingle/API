@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MinglerTagGetTest {
+class MinglerTagGetTest {
     private MinglerTagGet minglerTagGet;
 
     @BeforeEach
@@ -15,7 +15,7 @@ public class MinglerTagGetTest {
     }
 
     @Test
-    public void testSetterAndGetter() {
+    void testSetterAndGetter() {
         minglerTagGet.setTag("vixi9");
         assertEquals("vixi9", minglerTagGet.getTag());
     }
