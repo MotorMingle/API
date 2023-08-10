@@ -1,0 +1,58 @@
+{
+  "applications": "*",
+  "changelogDate": "20230810102411",
+  "entityTableName": "application_user",
+  "fields": [
+    {
+      "fieldName": "tag",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "firstname",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "birthDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "javadoc": "ApplicationUser entity\\n@author brionnevi",
+  "name": "ApplicationUser",
+  "relationships": [
+    {
+      "javadoc": "Encounter{vehicle} to Vehicle\\nEncounter{user} to ApplicationUser",
+      "otherEntityName": "encounter",
+      "relationshipName": "encounters",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "interests",
+      "relationshipName": "interests",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "ownership",
+      "otherEntityRelationshipName": "user",
+      "relationshipName": "ownerships",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

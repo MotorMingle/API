@@ -1,0 +1,17 @@
+{
+  "applications": "*",
+  "changelogDate": "20230810102412",
+  "entityTableName": "country",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "javadoc": "Country entity\\n@author brionnevi",
+  "name": "Country",
+  "relationships": [],
+  "searchEngine": "no"
+}

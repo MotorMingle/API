@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20230810102414",
+  "entityTableName": "manufacturer",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "javadoc": "Manufacturer entity\\n@author brionnevi",
+  "name": "Manufacturer",
+  "relationships": [
+    {
+      "otherEntityName": "country",
+      "relationshipName": "country",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "vehicle",
+      "otherEntityRelationshipName": "manufacturer",
+      "relationshipName": "vehicles",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

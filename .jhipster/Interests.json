@@ -1,0 +1,16 @@
+{
+  "applications": "*",
+  "changelogDate": "20230810113659",
+  "entityTableName": "interests",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "name": "Interests",
+  "relationships": [],
+  "searchEngine": "no"
+}

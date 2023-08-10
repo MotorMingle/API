@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20230810102413",
+  "entityTableName": "encounter",
+  "fields": [
+    {
+      "fieldName": "hash",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "count",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "EncounterStatus",
+      "fieldValues": "ACCEPTED,DECLINED,PENDING"
+    }
+  ],
+  "javadoc": "Encounter entity\\n@author brionnevi",
+  "name": "Encounter",
+  "relationships": [
+    {
+      "javadoc": "Encounter{vehicle} to Vehicle\\nEncounter{user} to ApplicationUser",
+      "otherEntityName": "applicationUser",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

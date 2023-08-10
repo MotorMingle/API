@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20230810102416",
+  "entityTableName": "vehicle",
+  "fields": [
+    {
+      "fieldName": "model",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "horsePower",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "VehicleType",
+      "fieldValues": "CAR,MOTORCYCLE"
+    }
+  ],
+  "javadoc": "Vehicle entity\\n@author brionnevi",
+  "name": "Vehicle",
+  "relationships": [
+    {
+      "otherEntityName": "manufacturer",
+      "otherEntityRelationshipName": "vehicles",
+      "relationshipName": "manufacturer",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

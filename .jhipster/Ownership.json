@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20230810102415",
+  "entityTableName": "ownership",
+  "fields": [
+    {
+      "fieldName": "licensePlate",
+      "fieldType": "String"
+    }
+  ],
+  "javadoc": "Encounter entity\\n@author brionnevi",
+  "name": "Ownership",
+  "relationships": [
+    {
+      "otherEntityName": "applicationUser",
+      "relationshipName": "currentVehicle",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "vehicle",
+      "relationshipName": "vehicle",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "applicationUser",
+      "otherEntityRelationshipName": "ownerships",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}
